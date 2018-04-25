@@ -1,0 +1,38 @@
+---
+# tasks file for vim
+- name: -基础依赖安装--
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - git
+- name: -安装powerline字体-
+  git:
+    repo: 'https://github.com/powerline/fonts.git'
+    dest: /opt/checkout
+    version: master
+    clone: yes
+    update: yes
+- name: -安装fronts字体文件-
+  shell: sh install.sh
+  args:
+    chdir: /opt/checkout
+- name: -安装vim 插件管理器-
+  git:
+    repo: 'https://github.com/VundleVim/Vundle.vim.git'
+    dest: ~/.vim/bundle/Vundle.vim
+    version: master
+    clone: yes
+    update: yes
+- name: -拷贝.vimrc配置文件-
+  copy:
+    src: .vimrc
+    dest: ~/.vimrc
+    owner: root
+    group: root
+    force: yes
+    mode: u=rw,g=r,o=r
+- name: -安装vim plugin的自定义插件-
+  shell: vim +PluginInstall +qall
+  args:
+    executable: /bin/bash
