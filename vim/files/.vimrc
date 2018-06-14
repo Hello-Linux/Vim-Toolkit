@@ -1,4 +1,7 @@
 set nocompatible              " be iMproved, required
+set cursorline  
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 set t_Co=256
 set laststatus=2
 set lazyredraw
