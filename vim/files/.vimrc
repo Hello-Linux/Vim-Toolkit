@@ -6,6 +6,10 @@ set lazyredraw
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '》'
+let g:airline#extensions#tabline#left_alt_sep = '+'
+let g:airline#extensions#tabline#formatter = 'default'
 "++++++++++++++IndentLine Plugin settings++++++++++++
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 2
@@ -19,7 +23,7 @@ let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
-autocmd vimenter * NERDTree
+nmap <F2> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -37,6 +41,21 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"+++++++++++++++++++ctrlp configuration+++++++++++++++++
+let g:ctrlp_map = '<Leader>c'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"+++++++++++++++++++++++++++++tagbar configuration++++++
+nmap <F3> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = 'ctags'  
+let g:tagbar_width = 60
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+"for python docstring ", 特别有用
+au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 filetype off            " required
 
@@ -68,6 +87,13 @@ Plugin 'pearofducks/ansible-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'Raimondi/delimitMate'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'gregsexton/gitv'
+Plugin 'tpope/vim-git'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}

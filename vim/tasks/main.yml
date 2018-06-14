@@ -6,6 +6,7 @@
     state: latest
   loop:
     - git
+    - ctags
 - name: -安装powerline字体-
   git:
     repo: 'https://github.com/powerline/fonts.git'
@@ -21,6 +22,12 @@
   git:
     repo: 'https://github.com/VundleVim/Vundle.vim.git'
     dest: ~/.vim/bundle/Vundle.vim
+    version: master
+    clone: yes
+    update: yes
+- name: -安装vim_fugitive插件-
+  git:
+    dest: ~/.vim/bundle
     version: master
     clone: yes
     update: yes
