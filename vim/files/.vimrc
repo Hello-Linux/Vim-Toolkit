@@ -5,7 +5,7 @@ set guifont=Courier\ New:h3
 set t_Co=256
 set laststatus=2
 set lazyredraw
-set mouse=n
+set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
@@ -62,6 +62,9 @@ let g:rehash256 = 1
 colorscheme molokai
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+"+++++++++++++++++check trailing whitespace+++++++++++++++++++++++++++++
+map <F5> :FixWhitespace<CR>
+
 "for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
@@ -104,6 +107,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-git'
 Plugin 'tomasr/molokai'
 Plugin 'neutaaaaan/iosvkem'
+Plugin 'bronson/vim-trailing-whitespace'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
