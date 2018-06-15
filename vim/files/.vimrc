@@ -5,6 +5,7 @@ set guifont=Courier\ New:h3
 set t_Co=256
 set laststatus=2
 set lazyredraw
+set mouse=n
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
