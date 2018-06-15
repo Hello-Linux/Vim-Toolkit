@@ -9,7 +9,11 @@ A very beautifule vim-ide for ansible
   
   3.ansible-vim 插件支持
   
-  4.vim NERDTree 树形树支持
+  4.vim NERDTree 树形树支持(F2)
+  
+  5.vim 文件名只能补全(F4)
+
+  6.vim tagbar (F3)
   
 使用方法:
 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
