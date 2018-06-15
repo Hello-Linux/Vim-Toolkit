@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 set cursorline  
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+set number
+set guifont=Courier\ New:h10
 set t_Co=256
 set laststatus=2
 set lazyredraw
@@ -56,6 +56,10 @@ nmap <F3> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'  
 let g:tagbar_width = 60
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+let g:molokai_original = 1
+let g:rehash256 = 1
+colorscheme molokai
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
@@ -97,6 +101,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-git'
+Plugin 'tomasr/molokai'
+Plugin 'neutaaaaan/iosvkem'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}

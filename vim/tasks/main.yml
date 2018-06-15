@@ -27,10 +27,17 @@
     update: yes
 - name: -安装vim_fugitive插件-
   git:
+    repo: 'https://github.com/tpope/vim-fugitive.git'
     dest: ~/.vim/bundle
     version: master
     clone: yes
     update: yes
+- name: -安装Molokai color scheme for vim-
+  git:
+    repo: 'https://github.com/tomasr/molokai.git'
+    dest: ~/.vim/
+    version: master
+    clone: yes
 - name: -拷贝.vimrc配置文件-
   copy:
     src: .vimrc
