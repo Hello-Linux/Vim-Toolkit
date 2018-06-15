@@ -1,10 +1,11 @@
 set nocompatible              " be iMproved, required
 set cursorline  
 set number
-set guifont=Courier\ New:h10
+set guifont=Courier\ New:h3
 set t_Co=256
 set laststatus=2
 set lazyredraw
+set guifont=DroidSansMonoForPowerlineNerdFont\ 12
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
@@ -30,10 +31,9 @@ nmap <F2> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
+"+++++++++++++++++++filename completion+++++++++++++++++++
+imap <F4> <C-x><C-f>
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"
-
-
 "syntastic plugin settings++++++++++++++++++++++++++++
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
