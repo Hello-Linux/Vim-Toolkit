@@ -64,8 +64,34 @@ colorscheme molokai
 
 "+++++++++++++++++check trailing whitespace+++++++++++++++++++++++++++++
 map <F5> :FixWhitespace<CR>
-
-"for python docstring ", 特别有用
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"++++++++++++++++++++++++rainbow_parentheses.vim++++++++++++++++++++++++
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+let g:rbpt_loadcmd_toggle = 0
+let g:rbpt_max = 16
+"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+""for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 filetype off            " required
@@ -108,6 +134,7 @@ Plugin 'tpope/vim-git'
 Plugin 'tomasr/molokai'
 Plugin 'neutaaaaan/iosvkem'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'kien/rainbow_parentheses.vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
