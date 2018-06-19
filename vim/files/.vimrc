@@ -47,7 +47,7 @@ let g:syntastic_check_on_wq = 0
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "+++++++++++++++++++ctrlp configuration+++++++++++++++++
-let g:ctrlp_map = '<Leader>c'
+let g:ctrlp_map = '<Leader>s'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -91,6 +91,18 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:rbpt_loadcmd_toggle = 0
 let g:rbpt_max = 16
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"+++++++++++++++++++++nerdcommenter config++++++++++++++++++++++++++++++
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code" indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ""for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
@@ -139,7 +151,7 @@ Plugin 'scrooloose/nerdcommenter'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
-"
+""
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
