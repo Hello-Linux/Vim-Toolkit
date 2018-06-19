@@ -46,10 +46,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"+++++++++++++++++++ctrlp configuration+++++++++++++++++
-let g:ctrlp_map = '<Leader>s'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+"+++++++++++++++++++fzf configuration+++++++++++++++++
+
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "+++++++++++++++++++++++++++++tagbar configuration++++++
@@ -103,6 +101,10 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"++++++++++++++++++++++++++++++++fuzzy finder config+++++++++++++++++++++++
+" If installed using git
+set rtp+=~/.fzf
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ""for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
@@ -148,6 +150,7 @@ Plugin 'neutaaaaan/iosvkem'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'junegunn/fzf.vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}

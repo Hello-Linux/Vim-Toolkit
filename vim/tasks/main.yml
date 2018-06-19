@@ -38,6 +38,17 @@
     dest: ~/.vim/
     version: master
     clone: yes
+
+- name: -下载fuzzy finder-
+  git:
+    repo: 'https://github.com/junegunn/fzf.git'
+    dest: ~/.fzf
+    version: master
+    clone: yes
+- name: -安装fuzzy finder-
+  shell: ./install.sh --all
+  args:
+    chdir: ~/.fzf
 - name: -拷贝.vimrc配置文件-
   copy:
     src: .vimrc
