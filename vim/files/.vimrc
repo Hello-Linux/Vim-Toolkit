@@ -104,6 +104,8 @@ let g:NERDTrimTrailingWhitespace = 1
 "++++++++++++++++++++++++++++++++fuzzy finder config+++++++++++++++++++++++
 " If installed using git
 set rtp+=~/.fzf
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ""for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
@@ -151,6 +153,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
+Plugin 'mhinz/vim-startify'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
