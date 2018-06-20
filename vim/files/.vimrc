@@ -158,7 +158,10 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mhinz/vim-startify'
+<<<<<<< HEAD
 Plugin 'lifepillar/vim-mucomplete'
+=======
+>>>>>>> ca2c4c4420e3b4542944db944e4452eafa9ee89c
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
