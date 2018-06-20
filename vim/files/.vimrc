@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-set cursorline  
+set cursorline
 set number
 set guifont=Courier\ New:h3
 set t_Co=256
@@ -7,6 +7,7 @@ set laststatus=2
 set lazyredraw
 set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
+set pastetoggle=<F6>
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
@@ -32,9 +33,10 @@ nmap <F2> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
-"+++++++++++++++++++filename completion+++++++++++++++++++
-imap <F4> <C-x><C-f>
-"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"+++++++++++++++++++mucomplete configuration+++++++++++++++++++
+set completeopt+=menuone
+let g:mucomplete#enable_auto_at_startup = 1
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "syntastic plugin settings++++++++++++++++++++++++++++
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -52,7 +54,7 @@ let g:syntastic_check_on_wq = 0
 
 "+++++++++++++++++++++++++++++tagbar configuration++++++
 nmap <F3> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = 'ctags'  
+let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 60
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:molokai_original = 1
@@ -104,7 +106,11 @@ let g:NERDTrimTrailingWhitespace = 1
 "++++++++++++++++++++++++++++++++fuzzy finder config+++++++++++++++++++++++
 " If installed using git
 set rtp+=~/.fzf
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 ""for python docstring ", 特别有用
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
@@ -151,6 +157,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'lifepillar/vim-mucomplete'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}

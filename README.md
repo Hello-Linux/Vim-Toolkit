@@ -29,5 +29,7 @@ A very beautifule vim-ide for ansible
   10.添加fuzzy finder 模糊搜索工具
     * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
 
+  11. 增加vim粘贴缩进混乱解决方案(F6开启关闭vim paste模式)
+
 使用方法:
 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
