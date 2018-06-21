@@ -16,10 +16,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = '》'
 let g:airline#extensions#tabline#left_alt_sep = '+'
 let g:airline#extensions#tabline#formatter = 'default'
-"++++++++++++++IndentLine Plugin settings++++++++++++
-let g:indentLine_setColors = 1
-let g:indentLine_color_term = 2
-let g:indentLine_char = '¦'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
@@ -64,6 +60,12 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+"+++++++++++++++++++++vim-indent-guides+++++++++++++++++
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size=1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 "+++++++++++++++++++++++++++++tagbar configuration++++++
 nmap <F3> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
@@ -115,6 +117,8 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 "++++++++++++++++++++++++++++++++fuzzy finder config+++++++++++++++++++++++
 " If installed using git
 set rtp+=~/.fzf
@@ -153,7 +157,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'pearofducks/ansible-vim'
-Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'KabbAmine/zeavim.vim'
@@ -172,6 +175,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'nathanaelkane/vim-indent-guides'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
