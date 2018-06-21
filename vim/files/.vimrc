@@ -24,10 +24,11 @@ let g:indentLine_char = '¦'
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
 let g:ansible_unindent_after_newline = 1
-let g:ansible_attribute_highlight = "ob"
+let g:ansible_attribute_highlight = "ab"
 let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F2> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -48,8 +49,19 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"+++++++++++++++++++fzf configuration+++++++++++++++++
-
+"+++++++++++++++++++nerdtree configuration+++++++++++++++++
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "+++++++++++++++++++++++++++++tagbar configuration++++++
@@ -158,10 +170,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mhinz/vim-startify'
-<<<<<<< HEAD
 Plugin 'lifepillar/vim-mucomplete'
-=======
->>>>>>> ca2c4c4420e3b4542944db944e4452eafa9ee89c
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
