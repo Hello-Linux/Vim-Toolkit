@@ -26,12 +26,14 @@ A very beautifule vim-ide for ansible
 
   9.自动补全括号,高亮各种括
 
-  10.添加fuzzy finder 模糊搜索工具
+  10.fuzzy finder 模糊搜索工具
     * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
 
-  11. 增加vim粘贴缩进混乱解决方案(F6开启/关闭vim paste模式)
+  11. vim粘贴缩进混乱解决方案(F1开启/关闭vim paste模式)
 
-  12. 增加nerdtree-git-plugin 显示文件git状
+  12. nerdtree-git-plugin 显示文件git状
+
+  13. vim mini buffer explorer 标签插件(F6 F7翻页功能)
 
 使用方法:
 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
