@@ -7,13 +7,13 @@ set laststatus=2
 set lazyredraw
 set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
-set pastetoggle=<F6>
+set pastetoggle=<F1>
+set autoread
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = '》'
 let g:airline#extensions#tabline#left_alt_sep = '+'
 let g:airline#extensions#tabline#formatter = 'default'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -67,6 +67,25 @@ let g:indent_guides_guide_size=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
 "+++++++++++++++++++++++++++++tagbar configuration++++++
+
+
+"++++++++++++++++++++++++minibufferexplore config+++++++++++++++++++
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMoreThanOne=0
+
+" MiniBufExpl Colors
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+map <F6> :MBEbp<CR>
+map <F7> :MBEbn<CR>
+"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F3> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 60
@@ -176,6 +195,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'fholgado/minibufexpl.vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
