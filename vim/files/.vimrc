@@ -17,6 +17,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '+'
 let g:airline#extensions#tabline#formatter = 'default'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
+"height ligth cusor
+set bg=dark
+set cursorcolumn
+highlight CursorLine cterm=none ctermbg=236
+highlight CursorColumn cterm=none ctermbg=236
+
+
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
 let g:ansible_unindent_after_newline = 1
@@ -62,10 +69,11 @@ let g:NERDTreeIndicatorMapCustom = {
 
 "+++++++++++++++++++++vim-indent-guides+++++++++++++++++
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size=1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_tab_guides = 0
+hi IndentGuidesOdd ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 "+++++++++++++++++++++++++++++tagbar configuration++++++
 
 
@@ -196,6 +204,7 @@ Plugin 'lifepillar/vim-mucomplete'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'terryma/vim-multiple-cursors'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
@@ -216,3 +225,4 @@ filetype plugin indent on    " required
 " "
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
+
