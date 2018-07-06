@@ -32,6 +32,8 @@ let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+let g:ansible_yamlKeyName = 'yamlKey'
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F2> :NERDTree<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -205,6 +207,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'davidhalter/jedi-vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
