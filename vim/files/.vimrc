@@ -36,6 +36,7 @@ let g:ansible_yamlKeyName = 'yamlKey'
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F2> :NERDTree<CR>
+autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -67,6 +68,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+let NERDTreeAutoCenter = 1
+let NERDTreeShowHidden = 1
+let NERDTreeWinSize = 35
+let NERDTreeShowBookmarks = 1
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "+++++++++++++++++++++vim-indent-guides+++++++++++++++++
@@ -97,8 +102,15 @@ map <F6> :MBEbp<CR>
 map <F7> :MBEbn<CR>
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F3> :TagbarToggle<CR>
+autocmd VimEnter * nested :TagbarOpen
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 60
+let g:tagbar_indent = 1
+let g:tagbar_iconchars = ['▶', '▼']
+let g:tagbar_autoshowtag = 1
+let g:tagbar_vertical = 30
+let g:tagbar_compact = 1
+autocmd VimEnter * wincmd l
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:molokai_original = 1
 let g:rehash256 = 1
@@ -153,6 +165,15 @@ let g:NERDTrimTrailingWhitespace = 1
 set rtp+=~/.fzf
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -207,7 +228,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'dracula/vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
