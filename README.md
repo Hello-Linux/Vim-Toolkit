@@ -40,7 +40,8 @@ A very beautifule vim-ide for ansible
 
 
 运行截图:
-![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example1.png)
-![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example2.png)
-![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example3.png)
-![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example4.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example1.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example2.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example3.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example4.png)
+
