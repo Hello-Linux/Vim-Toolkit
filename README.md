@@ -37,3 +37,10 @@ A very beautifule vim-ide for ansible
 
 使用方法:
 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
+
+
+运行截图:
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example1.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example2.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example3.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/master/images/example4.png)
