@@ -38,6 +38,10 @@
     dest: ~/.vim/colors
     version: master
     clone: yes
+- name: -字体主题插件拷贝-
+  copy:
+    src: ~/.vim/colors/colors/molokai.vim
+    dest: ~/.vim/colors/molokai.vim
 
 - name: -下载fuzzy finder-
   git:
