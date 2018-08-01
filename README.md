@@ -34,6 +34,8 @@ A very beautifule vim-ide for ansible
   12. nerdtree-git-plugin 显示文件git状
 
   13. vim mini buffer explorer 标签插件(F6 F7翻页功能)
+  
+  14. vim-indent 漂亮美观的代码对齐线
 
 使用方法:
 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
