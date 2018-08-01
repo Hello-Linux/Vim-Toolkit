@@ -62,7 +62,3 @@
     group: root
     force: yes
     mode: u=rw,g=r,o=r
-- name: -安装vim plugin的自定义插件-
-  shell: vim +PluginInstall +qall
-  args:
-    executable: /bin/bash
