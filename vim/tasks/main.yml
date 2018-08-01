@@ -28,7 +28,7 @@
 - name: -安装vim_fugitive插件-
   git:
     repo: 'https://github.com/tpope/vim-fugitive.git'
-    dest: ~/.vim/bundle
+    dest: ~/.vim/bundle/vim-fugitive
     version: master
     clone: yes
     update: yes
