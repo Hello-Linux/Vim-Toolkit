@@ -15,6 +15,9 @@ set autoindent
 set confirm
 set smartindent
 set shiftwidth=2
+set softtabstop=4
+autocmd FIletype yaml setlocal tabstop=2 softtabstop=3 shiftwidth=2 autoindent smartindent
+autocmd FIletype python setlocal tabstop=4 expandtab shiftwidth=4 autoread nocompatible confirm autoindent smartindent
 "+++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
