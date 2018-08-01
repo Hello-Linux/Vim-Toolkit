@@ -35,7 +35,7 @@
 - name: -安装Molokai color scheme for vim-
   git:
     repo: 'https://github.com/tomasr/molokai.git'
-    dest: ~/.vim/
+    dest: ~/.vim/colors
     version: master
     clone: yes
 
