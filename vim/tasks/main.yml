@@ -1,5 +1,14 @@
 ---
 # tasks file for vim
+- name : vim环境检测
+  shell: vim --version|grep lua
+  register: check
+- name: 下载vim7.4版本
+  get_url:
+    url: ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+    dest: /tmp
+    mode: 777
+  when: check.stdout.find('-lua') != -1
 - name: -基础依赖安装--
   yum:
     name: "{{ item }}"
@@ -7,6 +16,41 @@
   loop:
     - git
     - ctags
+    - ncurses
+    - ncurses-devel
+    - gcc
+    - gcc-c++
+    - readline-devel
+    - bzip2
+- name: 下载lua5.3.5版本
+  get_url:
+    url: http://www.lua.org/ftp/lua-5.3.5.tar.gz
+    dest: /tmp
+    mode: 777
+  when: check.stdout.find('-lua') != -1
+- name: 安装lua5.3.5
+  shell: "tar -zxvf lua-5.3.5.tar.gz && cd lua-5.3.5 && make linux test && make install"
+  args:
+    chdir: /tmp
+  when: check.stdout.find('-lua') != -1
+
+- name: 解压vim安装包
+  unarchive:
+    src: ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+    dest: /tmp/
+    remote_src: no
+  when: check.stdout.find('-lua') != -1
+- name: 修改vim配置文件
+  lineinfile:
+    path: /tmp/vim74/src/if_lua.c
+    regexp: 'long pos \= luaL_optlong\(L, 3, 0\);'
+    line: '    long pos = (long)luaL_optinteger(L, 3, 0);'
+  when: check.stdout.find('-lua') != -1
+- name: 安装vim7.4
+  shell: "cd vim74 && ./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local  && make && make install"
+  args:
+    chdir: /tmp
+  when: check.stdout.find('-lua') != -1
 - name: -安装powerline字体-
   git:
     repo: 'https://github.com/powerline/fonts.git'

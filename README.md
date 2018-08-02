@@ -11,7 +11,7 @@ A very beautifule vim-ide for ansible
 
   4.vim NERDTree 树形树支持(F2)
 
-  5.vim 文件名智能补全(F4)
+  5.vim 文件名智能补全<TAB>键
 
   6.vim tagbar (F3)
 
@@ -24,9 +24,10 @@ A very beautifule vim-ide for ansible
     * <leader>cA在当前行尾添加注释符，并进入Insert模式
     * <leader>cu取消注释
 
-  9.自动补全括号,高亮各种括
+	9. vim 各种括号补全彩虹颜色显示
 
-  10.fuzzy finder 模糊搜索工具
+
+  10. fuzzy finder 模糊搜索工具
     * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
 
   11. vim粘贴缩进混乱解决方案(F1开启/关闭vim paste模式)
