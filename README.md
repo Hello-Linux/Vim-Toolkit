@@ -42,6 +42,8 @@ A very beautifule vim-ide for ansible
 1. 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
 2. 终端运行 vim +PluginInstall +qal
 
+目前支持的Linux操作系统:centos系列
+
 
 运行截图:
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example1.png)
