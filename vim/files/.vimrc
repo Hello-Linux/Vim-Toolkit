@@ -1,9 +1,10 @@
 set nocompatible              " be iMproved, required
 set number
+syntax on
 set guifont=Courier\ New:h3
-set backspace=2
 set t_Co=256
 set laststatus=2
+set backspace=2
 set lazyredraw
 set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
