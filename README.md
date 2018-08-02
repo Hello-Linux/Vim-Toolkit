@@ -11,7 +11,7 @@ A very beautifule vim-ide for ansible
 
   4.vim NERDTree 树形树支持(F2)
 
-  5.vim 文件名智能补全<TAB>键
+  5. 基于文件名,路径智能补全.常用系统函数补全,Omni光标补全,vimshell补全,sql 以及常用编程语言补全
 
   6.vim tagbar (F3)
 

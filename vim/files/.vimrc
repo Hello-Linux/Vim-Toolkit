@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-"set cursorline
+set cursorline
 set number
 set guifont=Courier\ New:h3
 set t_Co=256
@@ -9,16 +9,6 @@ set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
 set pastetoggle=<F1>
 set autoread
-"+++++++++++++++++set config for indent++++++++++
-set tabstop=2
-set autoindent
-set confirm
-set smartindent
-set shiftwidth=2
-set softtabstop=4
-autocmd FIletype yaml setlocal tabstop=2 softtabstop=3 shiftwidth=2 autoindent smartindent
-autocmd FIletype python setlocal tabstop=4 expandtab shiftwidth=4 autoread nocompatible confirm autoindent smartindent
-"+++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
@@ -27,8 +17,84 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '+'
 let g:airline#extensions#tabline#formatter = 'default'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
+"height ligth cusor
+set bg=dark
+set cursorcolumn
+highlight CursorLine cterm=none ctermbg=236
+highlight CursorColumn cterm=none ctermbg=236
 
+"++++++++++++++++neocomplete config++++++++++++++++++++
+let g:neocomplete#enable_at_startup = 1
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
 let g:ansible_unindent_after_newline = 1
@@ -45,9 +111,6 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
-"+++++++++++++++++++mucomplete configuration+++++++++++++++++++
-set completeopt+=menuone
-let g:mucomplete#enable_auto_at_startup = 1
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "syntastic plugin settings++++++++++++++++++++++++++++
 set statusline+=%#warningmsg#
@@ -79,12 +142,13 @@ let NERDTreeWinSize = 35
 let NERDTreeShowBookmarks = 1
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"+++++++++++++++++++++vim-indent-line+++++++++++++++++
-let g:indentLine_color_term = 100
-let g:indentLine_char = '¦'
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
-
+"+++++++++++++++++++++vim-indent-guides+++++++++++++++++
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_tab_guides = 0
+hi IndentGuidesOdd ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 "+++++++++++++++++++++++++++++tagbar configuration++++++
 
 
@@ -178,23 +242,7 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-let g:fzf_layout = { 'down': '~35%' }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"
 
 
 ""for python docstring ", 特别有用
@@ -243,12 +291,14 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'lifepillar/vim-mucomplete'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim'
-Plugin 'Yggdroot/indentLine'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/neco-vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
