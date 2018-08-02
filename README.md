@@ -50,4 +50,5 @@ A very beautifule vim-ide for ansible
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example3.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example4.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example5.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example6.png)
 
