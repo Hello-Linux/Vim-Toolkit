@@ -9,6 +9,21 @@ set mouse=nv
 set guifont=DroidSansMonoForPowerlineNerdFont\ 12
 set pastetoggle=<F1>
 set autoread
+
+"+++++++++++++++set config for indent++++++++++++
+set tabstop=2
+set autoindent
+set confirm
+set smartindent
+set shiftwidth=2
+"+++++++++++++++++++++vim-indent-line+++++++++++++++++
+let g:indentLine_color_term = 100
+let g:indentLine_char = '¦'
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+autocmd FIletype yaml setlocal tabstop=2 softtabstop=3 shiftwidth=2 autoindent smartindent
+autocmd FIletype python setlocal tabstop=4 expandtab shiftwidth=4 autoread nocompatible confirm autoindent smartindent
+"+++++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++Airline Plugin settings++++++++++++++++++
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dark'
@@ -142,13 +157,6 @@ let NERDTreeWinSize = 35
 let NERDTreeShowBookmarks = 1
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"+++++++++++++++++++++vim-indent-guides+++++++++++++++++
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_tab_guides = 0
-hi IndentGuidesOdd ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
 "+++++++++++++++++++++++++++++tagbar configuration++++++
 
 
@@ -292,13 +300,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'dracula/vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/neco-vim'
+Plugin 'Yggdroot/indentLine'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
