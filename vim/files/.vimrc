@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required
-set cursorline
 set number
 set guifont=Courier\ New:h3
 set t_Co=256
@@ -34,7 +33,6 @@ let g:airline#extensions#tabline#formatter = 'default'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 "height ligth cusor
 set bg=dark
-set cursorcolumn
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 
