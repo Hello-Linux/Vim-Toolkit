@@ -21,6 +21,7 @@
     src: http://www.lua.org/ftp/lua-5.3.5.tar.gz
     dest: /tmp
     remote_src: yes
+    creates: /tmp/lua.txt
   when: check.stdout.find('-lua') != -1
 - name: 安装lua5.3.5
   shell: "cd lua-5.3.5 && make linux test && make install"
@@ -30,13 +31,14 @@
 
 - name: 准备vim环境
   unarchive:
-    src: "{{ vim_url }}"
+    src: ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
     dest: /tmp
     remote_src: yes
+    creates: /tmp/vim.txt
   when: check.stdout.find('-lua') != -1
 
 - name: 安装vim
-  shell: "cd {{ vim_version }} && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir=/usr/lib64/python2.7/config --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes && make && make install"
+  shell: "cd vim81 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir=/usr/lib64/python2.7/config --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes && make && make install"
   args:
     chdir: /tmp
   when: check.stdout.find('-lua') != -1
