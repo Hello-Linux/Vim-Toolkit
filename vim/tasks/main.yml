@@ -16,7 +16,8 @@
     - gcc-c++
     - readline-devel
     - bzip2
-    - 'openssh*'
+    - openssl
+    - openssl-devel
     - 'zlib*'
     - libffi-devel
 - name: 下载Python3.7版本
@@ -25,10 +26,14 @@
     dest: /tmp
     remote_src: yes
     creates: /tmp/python.txt
+
 - name: 安装Python3.7
   shell: "cd Python-3.7.0 && ./configure && make && make install"
   args:
     chdir: /tmp
+- name: 安装Jedi
+  shell: pip3.7 install jedi
+
 - name: 下载lua5.3.5版本
   unarchive:
     src: http://www.lua.org/ftp/lua-5.3.5.tar.gz
