@@ -16,6 +16,20 @@
     - gcc-c++
     - readline-devel
     - bzip2
+    - openssh
+    - openssh-devel
+    - 'zlib*'
+    - libffi-devel
+- name: 下载Python3.7版本
+  unarchive:
+    src: https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
+    dest: /tmp
+    remote_src: yes
+    creates: /tmp/python.txt
+- name: 安装Python3.7
+  shell: "cd Python-3.7.0 && ./configure && make && make install"
+  args:
+    chdir: /tmp
 - name: 下载lua5.3.5版本
   unarchive:
     src: http://www.lua.org/ftp/lua-5.3.5.tar.gz
@@ -38,7 +52,7 @@
   when: check.stdout.find('-lua') != -1
 
 - name: 安装vim
-  shell: "cd vim81 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir=/usr/lib64/python2.7/config --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes && make && make install"
+  shell: "cd vim81 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir=/usr/lib64/python2.7/config --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes --enable-python3interp=yes --with-python3-config-dir=/usr/local/lib/python3.7/config-3.7m-x86_64-linux-gnu && make && make install"
   args:
     chdir: /tmp
   when: check.stdout.find('-lua') != -1
