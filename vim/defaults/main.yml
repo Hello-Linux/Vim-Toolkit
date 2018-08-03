@@ -1,4 +1,4 @@
 ---
 # defaults file for vim
 vim_url: ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
-vim_version: 8.1
+vim_version: vim8
