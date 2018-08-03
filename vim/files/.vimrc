@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 set number
 syntax on
+set hlsearch
 set guifont=Courier\ New:h3
 set t_Co=256
 set laststatus=2
