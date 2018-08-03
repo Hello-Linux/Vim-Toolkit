@@ -3,12 +3,6 @@
 - name : vim环境检测
   shell: vim --version|grep lua
   register: check
-- name: 下载vim7.4版本
-  get_url:
-    url: ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-    dest: /tmp
-    mode: 777
-  when: check.stdout.find('-lua') != -1
 - name: -基础依赖安装--
   yum:
     name: "{{ item }}"
@@ -34,20 +28,15 @@
     chdir: /tmp
   when: check.stdout.find('-lua') != -1
 
-- name: 解压vim安装包
+- name: 准备vim环境
   unarchive:
-    src: ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-    dest: /tmp/
+    src: "{{ vim_url }}"
+    dest: /tmp
     remote_src: yes
   when: check.stdout.find('-lua') != -1
-- name: 修改vim配置文件
-  lineinfile:
-    path: /tmp/vim74/src/if_lua.c
-    regexp: 'long pos \= luaL_optlong\(L, 3, 0\);'
-    line: '    long pos = (long)luaL_optinteger(L, 3, 0);'
-  when: check.stdout.find('-lua') != -1
-- name: 安装vim7.4
-  shell: "cd vim74 && ./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local  && make && make install"
+
+- name: 安装vim
+  shell: "cd {{ vim_version }} && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir=/usr/lib64/python2.7/config --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes && make && make install"
   args:
     chdir: /tmp
   when: check.stdout.find('-lua') != -1
