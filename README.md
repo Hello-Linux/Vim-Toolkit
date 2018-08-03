@@ -11,7 +11,7 @@ A very beautifule vim-ide for ansible
 
   4. vim NERDTree 树形树支持(F2)
 
-  5. 基于文件名,文件路径智能补全，常用系统函数补全，Omni光标智能补全，vimshell补全，sql 以及常用编程语言补全(python基于jedi并在带doc功能)
+  5. 基于文件名,文件路径智能补全，常用系统函数补全，Omni光标智能补全，vimshell补全，编写记忆功能不全(基于文件cache),sql 以及常用编程语言补全(python基于jedi并在带doc功能)
 
   6. vim tagbar 显示编程语言的函数 变量 类等 (F3)
 
