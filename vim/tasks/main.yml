@@ -16,8 +16,7 @@
     - gcc-c++
     - readline-devel
     - bzip2
-    - openssh
-    - openssh-devel
+    - 'openssh*'
     - 'zlib*'
     - libffi-devel
 - name: 下载Python3.7版本
