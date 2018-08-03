@@ -32,7 +32,7 @@
   args:
     chdir: /tmp
 - name: 安装Jedi
-  shell: pip3.7 install jedi
+  shell: pip3.7 install jedi && pip2.7 install jedi
 
 - name: 下载lua5.3.5版本
   unarchive:
