@@ -36,6 +36,8 @@ A very beautifule vim-ide for ansible
 
   13. vim mini buffer explorer 标签插件(F6 F7翻页功能)
 
+  14. 自动代码折叠功能
+
 
 使用方法:
 1. 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
