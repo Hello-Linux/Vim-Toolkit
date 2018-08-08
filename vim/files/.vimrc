@@ -1,9 +1,9 @@
 set nocompatible              " be iMproved, required
 set number
 syntax on
-set hlsearch
 set guifont=Courier\ New:h3
 set t_Co=256
+set hlsearch
 set laststatus=2
 set backspace=2
 set lazyredraw
@@ -342,4 +342,43 @@ filetype plugin indent on    " required
 " "
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
-
+autocmd BufNewFile *.c,*.cpp,*.sh,*.py,*.java exec ":call SetTitle()"
+func SetTitle()
+        if (&filetype == 'c' || &filetype == 'cpp')
+                call setline(1, "/*************************************************************************")
+                call setline(2, "\ @Author: 你的名字")
+                call setline(3, "\ @Created Time : ".strftime("%c"))
+                call setline(4, "\ @File Name: ".expand("%"))
+                call setline(5, "\ @Description:")
+                call setline(6, " ************************************************************************/")
+                call setline(7,"")
+        endif
+        if &filetype == 'shell'
+                call setline(1, "\#!/bin/sh")
+                call setline(2, "\# Author: 你的名字")
+                call setline(3, "\# Created Time : ".strftime("%c"))
+                call setline(4, "\# File Name: ".expand("%"))
+                call setline(5, "\# Description:")
+                call setline(6,"")
+        endif
+        if &filetype == 'python'
+                call append(0, '#!/bin/env python3.7')
+                call append(1, '#   Version: v1.0.1')
+                call append(2, '#   Filename: '.expand("%"))
+                call append(3, '#   Author: Linux - hello_linux@aliyun.com')
+                call append(4, '#   Description: ---')
+                call append(5, '#   Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+"    call append(9, '')
+        endif
+        if &filetype == 'java'
+                call setline(1, "//coding=utf8")
+                call setline(2, "/**")
+                call setline(3, "\ *\ @Author: 你的名字")
+                call setline(4, "\ *\ @Created Time : ".strftime("%Y-%m-%d %H:%M:%S")")
+                call setline(5, "\ *\ @File Name: ".expand("%"))
+                call setline(6, "\ *\ @Description:")
+                call setline(7, "\ */")
+                call setline(8,"")
+        endif
+endfunc
+autocmd BufNewfile * normal G
