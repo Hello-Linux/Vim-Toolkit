@@ -39,7 +39,8 @@ set bg=dark
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 
-
+"++++++++++++++++SimpylFold configuration ++++
+let g:SimpylFold_docstring_preview = 1
 
 "++++++++++++++++neocomplete config++++++++++++++++++++
 let g:neocomplete#enable_at_startup = 1
@@ -310,6 +311,8 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/neco-vim'
 Plugin 'Yggdroot/indentLine'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'tmhedberg/SimpylFold'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
