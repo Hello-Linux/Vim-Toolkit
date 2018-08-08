@@ -40,17 +40,6 @@ highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 
 
-"+++++++++++++++++++++jedi configuration ++++++++++++++++
-let g:jedi#completions_enabled = 1
-
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-
 
 "++++++++++++++++neocomplete config++++++++++++++++++++
 let g:neocomplete#enable_at_startup = 1
@@ -321,7 +310,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/neco-vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'davidhalter/jedi-vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
