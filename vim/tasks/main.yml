@@ -112,13 +112,10 @@
   args:
     chdir: ~/.fzf
     executable: /bin/bash
-- name: -拷贝.vimrc配置文件-
-  copy:
-    src: .vimrc
+- name: -拷贝vimrc模板文件-
+  template:
+    src: vimrc.j2
     dest: ~/.vimrc
-    owner: root
-    group: root
-    force: yes
     mode: u=rw,g=r,o=r
 - name: 初始化vimrc配置文件
   shell: vim +PluginInstall +qall
