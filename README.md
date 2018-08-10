@@ -19,7 +19,7 @@ A very beautifule vim-ide for ansible
 
   5. 神级补全插件YouCompleteMe支持
 
-  6. vim tagbar 显示编程语言的函数 变量 类等 (F3)
+  6. vim tagbar 显示编程语言的函数 变量 类等（目前已经和nerdtree捆绑到一起） (F3)
 
   7. vim 行尾空格一键删除 (F5)
 
@@ -38,7 +38,7 @@ A very beautifule vim-ide for ansible
 
   11. vim粘贴缩进混乱解决方案(F1开启/关闭vim paste模式)
 
-  12. nerdtree-git-plugin 显示文件git状
+  12. nerdtree-git-plugin 显示文件git代码状态
 
   13. vim mini buffer explorer 标签插件(F6 F7翻页功能)
 
