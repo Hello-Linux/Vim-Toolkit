@@ -1,10 +1,13 @@
 # ansible-vim-ide
 A very beautifule vim-ide for ansible
 
-设计初衷:
+# 设计初衷:
 目前看github里面有很多写的很牛的VIM-IDE大部分是基于shell以及vimrc实现,但是大部分只是简单的修改了vimrc配置文件添加了一些插件就完事儿了.
 放到不同环境安装可能会出现很多问题,比如我的vim版本是7.0+ 你写的vimrc是针对8.0的，还有就是我的vimrc需要lua 以及python3支持但是我本地的vim不支持,那我用了你的vimrc我还需要手动安装编译我的环境么?太不智能了 对于一些大规模主机vim部署,基本的环境依赖解决,系统软件版本的自动识别更新,vimrc配置文件根据系统参数的动态调节等
-#功能描述:
+
+
+
+  #功能描述:
 
   1. vim 颜色插件airline
 
