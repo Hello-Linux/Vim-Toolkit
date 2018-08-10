@@ -1,0 +1,6 @@
+---
+- hosts: deploy
+  tasks:
+    - name: debug
+      debug:
+        msg: "System {{ hostvars['127.0.0.1']['ansible_python']['executable'] }}"
