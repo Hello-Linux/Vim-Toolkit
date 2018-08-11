@@ -48,7 +48,7 @@ A very beautifule vim-ide for ansible
 
 
 使用方法:
-1. 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可
+1. 安装ansible程序,之后将项目下的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim-ide.yml即可其中vim-ide中的hosts 写入你自己的要部署的主机组即可（友情提示最好看一下ansible的基础支持呦！）
 
 目前支持的Linux操作系统:centos7系列后面会支持更多
 

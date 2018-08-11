@@ -1,0 +1,4 @@
+---
+- hosts: 127.0.0.1
+  roles:
+    - {role: vim,when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7'}
