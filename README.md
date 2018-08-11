@@ -44,6 +44,8 @@ A very beautifule vim-ide for ansible
 
   14. 自动代码折叠功能
 
+	15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点
+
 
 使用方法:
 1. 安装ansible程序,之后将项目的vim文件夹拷贝到ansible的roles目录下面,执行ansible-playbook vim.yml即可

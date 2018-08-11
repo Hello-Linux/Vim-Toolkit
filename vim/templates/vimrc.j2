@@ -50,13 +50,125 @@ set foldlevel=99
 nnoremap <space> za
 
 
+"++++++++++++++++undo tree configuration++++++++++++++
+map <F9> :UndotreeToggle<CR>
+set undodir=~/.undodir/
+set undofile
+"=================================================
+" File: plugin/undotree.vim
+" Description: Manage your undo history in a graph.
+" Author: Ming Bai <mbbill@gmail.com>
+" License: BSD
+
+" Avoid installing twice.
+if exists('g:loaded_undotree')
+    finish
+endif
+let g:loaded_undotree = 0
+
+" At least version 7.3 with 005 patch is needed for undo branches.
+" Refer to https://github.com/mbbill/undotree/issues/4 for details.
+" Thanks kien
+if v:version < 703
+    command! -n=0 -bar UndotreeToggle :echoerr "undotree.vim needs Vim version >= 7.3"
+    finish
+endif
+if (v:version == 703 && !has("patch005"))
+    command! -n=0 -bar UndotreeToggle :echoerr "undotree.vim needs vim7.3 with patch005 applied."
+    finish
+endif
+let g:loaded_undotree = 1   " Signal plugin availability with a value of 1.
+
+"=================================================
+"Options:
+
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 1
+endif
+
+" e.g. using 'd' instead of 'days' to save some space.
+if !exists('g:undotree_ShortIndicators')
+    let g:undotree_ShortIndicators = 0
+endif
+
+" undotree window width
+if !exists('g:undotree_SplitWidth')
+    if g:undotree_ShortIndicators == 1
+        let g:undotree_SplitWidth = 24
+    else
+        let g:undotree_SplitWidth = 30
+    endif
+endif
+
+" diff window height
+if !exists('g:undotree_DiffpanelHeight')
+    let g:undotree_DiffpanelHeight = 10
+endif
+
+" auto open diff window
+if !exists('g:undotree_DiffAutoOpen')
+    let g:undotree_DiffAutoOpen = 1
+endif
+
+" if set, let undotree window get focus after being opened, otherwise
+" focus will stay in current window.
+if !exists('g:undotree_SetFocusWhenToggle')
+    let g:undotree_SetFocusWhenToggle = 0
+endif
+
+" tree node shape.
+if !exists('g:undotree_TreeNodeShape')
+    let g:undotree_TreeNodeShape = '*'
+endif
+
+if !exists('g:undotree_DiffCommand')
+    let g:undotree_DiffCommand = "diff"
+endif
+
+" relative timestamp
+if !exists('g:undotree_RelativeTimestamp')
+    let g:undotree_RelativeTimestamp = 1
+endif
+
+" Highlight changed text
+if !exists('g:undotree_HighlightChangedText')
+    let g:undotree_HighlightChangedText = 1
+endif
+
+" Highlight linked syntax type.
+" You may chose your favorite through ":hi" command
+if !exists('g:undotree_HighlightSyntaxAdd')
+    let g:undotree_HighlightSyntaxAdd = "DiffAdd"
+endif
+if !exists('g:undotree_HighlightSyntaxChange')
+    let g:undotree_HighlightSyntaxChange = "DiffChange"
+endif
+
+" Deprecates the old style configuration.
+if exists('g:undotree_SplitLocation')
+    echo "g:undotree_SplitLocation is deprecated,
+                \ please use g:undotree_WindowLayout instead."
+endif
+
+" Show help line
+if !exists('g:undotree_HelpLine')
+    let g:undotree_HelpLine = 1
+endif
+
+"=================================================
+" User commands.
+command! -n=0 -bar UndotreeToggle   :call undotree#UndotreeToggle()
+command! -n=0 -bar UndotreeHide     :call undotree#UndotreeHide()
+command! -n=0 -bar UndotreeShow     :call undotree#UndotreeShow()
+command! -n=0 -bar UndotreeFocus    :call undotree#UndotreeFocus()
+
+" vim: set et fdm=marker sts=4 sw=4:
+
+"END+++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 "+++++++++++++++YouCompleteMe configuration+++++++++++
 
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-" let g:ycm_key_list_select_completion = ['<Down>']
-" let g:ycm_key_list_previous_completion=['<c-p>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
@@ -96,7 +208,7 @@ let g:ycm_filetype_blacklist = {
        \ 'gitcommit' : 1,
        \}
 
-
+"+++++++++++++++++++++++++END+++++++++++++++++++++++
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
 let g:ansible_unindent_after_newline = 1
@@ -138,13 +250,14 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+let NERDTreeMinimalUI = 1
 let NERDTreeAutoCenter = 1
 let NERDTreeShowHidden = 1
 let NERDTreeWinSize = 35
 let NERDTreeShowBookmarks = 1
+let NERDTreeChDirMode = 2
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-"+++++++++++++++++++++++++++++tagbar configuration++++++
 
 
 "++++++++++++++++++++++++minibufferexplore config+++++++++++++++++++
@@ -164,14 +277,18 @@ hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 map <F6> :MBEbp<CR>
 map <F7> :MBEbn<CR>
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+"+++++++++++++++++++++++++++++tagbar configuration++++++
 nmap <F3> :TagbarToggle<CR>
 autocmd VimEnter * nested :TagbarOpen
 let g:tagbar_ctags_bin = 'ctags'
-let g:tagbar_width = 60
+let g:tagbar_width = 35
 let g:tagbar_indent = 1
 let g:tagbar_iconchars = ['▶', '▼']
 let g:tagbar_autoshowtag = 1
-let g:tagbar_vertical = 30
+let g:tagbar_vertical = 18
 let g:tagbar_compact = 1
 autocmd VimEnter * wincmd l
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -296,6 +413,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mbbill/undotree'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
