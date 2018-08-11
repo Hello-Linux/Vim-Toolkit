@@ -44,7 +44,7 @@ A very beautifule vim-ide for ansible
 
   14. 自动代码折叠功能
 
-  15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点
+  15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
 
 
 使用方法:
