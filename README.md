@@ -44,7 +44,7 @@ A very beautifule vim-ide for ansible
 
   14. 自动代码折叠功能
 
-	15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点
+  15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点
 
 
 使用方法:
@@ -62,6 +62,7 @@ A very beautifule vim-ide for ansible
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example6.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example7.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example8.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example11.png)
 
 如果您觉得项目不错的话可以多多支持一下作者,后面会做出更好的改进
 <div align="center">
