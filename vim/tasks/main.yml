@@ -114,9 +114,15 @@
     executable: /bin/bash
 - name: -拷贝vimrc模板文件-
   template:
-    src: vimrc.j2
+    src: "{{ item }}"
     dest: ~/.vimrc
     mode: u=rw,g=r,o=r
+  loop: "{{ query('first_found', { 'files': myfiles, 'paths': mypaths}) }}"
+  vars:
+    myfiles:
+      - "{{ ansible_distribution}}{{ansible_distribution_major_version }}_vimrc.j2"
+      -  default_vimrc.j2
+    mypaths: ['/etc/ansible/roles/vim/templates/']
 - name: 初始化vimrc配置文件
   shell: vim +PluginInstall +qall
 - name: 安装YouCompleteMe插件
