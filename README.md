@@ -7,7 +7,7 @@ A very beautifule vim-ide for ansible
 
 
 
-  #功能描述:
+  # 功能描述:
 
   1. vim 颜色插件airline
 
@@ -47,7 +47,7 @@ A very beautifule vim-ide for ansible
   15. untotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
 
 
-#使用方法:
+# 使用方法:
 
 1. 安装ansible程序可以参考官方网站安装方式或者使用https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-dnf-or-yum,目前centos用户可以直接使用yum安装（YUM 仓库地址:https://releases.ansible.com/ansible/）
 
@@ -56,12 +56,12 @@ A very beautifule vim-ide for ansible
 3.最后一句话ansible让一切简单起来！
 
 
-#操作系统支持:
+# 操作系统支持:
 目前支持的Linux操作系统:centos7系列后面会支持更多
 
 
 
-#运行样例截图:
+# 运行样例截图:
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example1.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example2.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example3.png)
