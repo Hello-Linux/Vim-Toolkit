@@ -442,8 +442,9 @@ func SetTitle()
                 call setline(3, "\ @Created Time : ".strftime("%c"))
                 call setline(4, "\ @File Name: ".expand("%"))
                 call setline(5, "\ @Description:")
-                call setline(6, " ************************************************************************/")
-                call setline(7,"")
+                call setline(6, "\ *\ @HostName:{{ hostname }}")
+                call setline(7, " ************************************************************************/")
+                call setline(8,"")
         endif
         if &filetype == 'shell'
                 call setline(1, "\#!/bin/sh")
@@ -451,7 +452,8 @@ func SetTitle()
                 call setline(3, "\# Created Time : ".strftime("%c"))
                 call setline(4, "\# File Name: ".expand("%"))
                 call setline(5, "\# Description:")
-                call setline(6,"")
+                call setline(6, "\ *\ @HostName:{{ hostname }}")
+                call setline(7,"")
         endif
         if &filetype == 'python'
                 call append(0, '#!/bin/env python3.7')
@@ -459,7 +461,8 @@ func SetTitle()
                 call append(2, '#   Filename: '.expand("%"))
                 call append(3, '#   Author: {{ author }}')
                 call append(4, '#   Description: ---')
-                call append(5, '#   Create: '.strftime("%Y-%m-%d %H:%M:%S"))
+                call append(5, '#   HostName: {{ hostname }}')
+                call append(6, '#   Create: '.strftime("%Y-%m-%d %H:%M:%S"))
 "    call append(9, '')
         endif
         if &filetype == 'java'
@@ -469,8 +472,9 @@ func SetTitle()
                 call setline(4, "\ *\ @Created Time : ".strftime("%Y-%m-%d %H:%M:%S")")
                 call setline(5, "\ *\ @File Name: ".expand("%"))
                 call setline(6, "\ *\ @Description:")
-                call setline(7, "\ */")
-                call setline(8,"")
+                call setline(7, "\ *\ @HostName:{{ hostname }}")
+                call setline(8, "\ */")
+                call setline(9,"")
         endif
 endfunc
 autocmd BufNewfile * normal G

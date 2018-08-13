@@ -1,9 +1,2 @@
 ---
 # defaults file for vim
-#vim 安装包地址定义
-vim_url: ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
-vim_version: vim8
-#YCM使用的python版本
-ycm_python_binary_path: /usr/local/bin/python3.7
-#新创建文件模板中的作者名字
-author: Sun~Shell
