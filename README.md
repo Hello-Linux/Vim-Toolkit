@@ -1,5 +1,3 @@
-# ansible-vim-ide
-A very beautifule vim-ide for ansible
 
 # 设计初衷:
    目前看github里面有很多写的很牛的VIM-IDE大部分是基于shell以及vimrc实现,但是大部分只是简单的修改了vimrc配置文件添加了一些插件就完事儿了.
