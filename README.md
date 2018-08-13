@@ -48,12 +48,17 @@ A very beautifule vim-ide for ansible
 
 
 # 使用方法:
+1. ansible安装 
 
-1. 安装ansible程序可以参考官方网站安装方式或者使用https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-dnf-or-yum,目前centos用户可以直接使用yum安装（YUM 仓库地址:https://releases.ansible.com/ansible/）
+可以参考官方网站安装方式https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-dnf-or-yum
+目前centos系列用户可以直接使用yum安装（ansible官方YUM 仓库地址:https://releases.ansible.com/ansible
 
-2.安装完成后将项目下的vim文件夹拷贝到ansible的roles目录下面即可,执行ansible-playbook vim-ide.yml即可.其中ansible的hosts文件中定义好你要部署的主机组名称, 目前代码里面写的hosts key值是本地127.0.0.1进行本地部署安装（友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn/！ 安装过程很简单操作很方便！！！）
+2.配置文件处理
 
-3.最后一句话ansible让一切简单起来！
+2.1 将项目下的hosts 主机资源文件替换ansible默认的hosts文件(centos7默认在/etc/ansible/hosts)
+如果你要部署多台主机的话可以参考hosts文件里面的说明操作
+2.2 将项目下的vim文件夹拷贝到ansible的roles目录下面即可,执行ansible-playbook vim-ide.yml即可
+(友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn  安装过程很简单操作很方便！！！)
 
 
 # 操作系统支持:
