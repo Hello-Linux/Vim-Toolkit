@@ -61,6 +61,9 @@
 2.2 将项目下的vim文件夹拷贝到ansible的roles目录下面即可,执行ansible-playbook vim-ide.yml即可
 (友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn  安装过程很简单操作很方便！！！)
 
+3. vim插件更新
+执行ansible-playbook update_plugin.yml 即可
+
 
 # 操作系统支持:
 目前支持的Linux操作系统:centos7系列后面会支持更多
