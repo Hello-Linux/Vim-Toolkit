@@ -125,7 +125,23 @@
     mypaths: ['/etc/ansible/roles/vim/templates/']
 - name: 初始化vimrc配置文件
   shell: vim +PluginInstall +qall
+
+
+- name: 安装go语言
+  unarchive:
+    src: https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+  when: build_params.find('go') != -1
+- name: 初始化go环境
+  lineinfile:
+    path: /etc/profile
+    line: 'PATH=$PATH:/usr/local/go/bin'
+    create: yes
+    state: present
+  when: build_params.find('go') != -1
+
 - name: 安装YouCompleteMe插件
-  shell: git submodule update --init --recursive && ./install.sh --clang-completer
+  shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
