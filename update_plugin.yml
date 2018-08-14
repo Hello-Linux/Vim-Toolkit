@@ -1,0 +1,5 @@
+---
+- hosts: vimide
+  tasks:
+    - name: 更新vim plugin
+      shell: vim +PluginUpdate +qall
