@@ -54,6 +54,8 @@
 
   * 18.支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
 
+  * 18.bash powerline 功能支持
+
 
 # 使用方法:
 1. ansible安装

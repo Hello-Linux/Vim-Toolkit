@@ -144,3 +144,13 @@
   shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
+- name: 安装bash powerline 插件
+  shell: pip install --user git+git://github.com/powerline/powerline
+- name: 初始化powerline
+  blockinfile:
+  path: /etc/profile
+  block: |
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . ~/.local/lib/{{ powerline_python_version }}/site-packages/powerline/bindings/bash/powerline.sh

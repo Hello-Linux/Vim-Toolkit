@@ -51,6 +51,8 @@
 
 #定义需要安装python3的具体版本
 python_version="3.7.0"
+#定义powerline 使用的python版本格式为:python+版本号 例如:python3.7
+powerline_python_version="python3.7"
 #以下是vim编译过程中python2跟python3的配置文件路径
 python3_config_dir="/usr/local/lib/python3.7/config-3.7m-x86_64-linux-gnu"
 python_config_dir="/usr/lib64/python2.7/config"
