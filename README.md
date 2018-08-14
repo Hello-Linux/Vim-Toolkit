@@ -48,6 +48,8 @@
 
   15. undotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
 
+  16. 支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
+
 
 # 使用方法:
 1. ansible安装 
@@ -80,6 +82,7 @@
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example7.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example8.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example11.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example12.png)
 
 如果您觉得项目不错的话可以多多支持一下作者,后面会做出更好的改进
 <div align="center">
