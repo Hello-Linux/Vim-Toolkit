@@ -30,18 +30,18 @@
   args:
     chdir: /tmp
 
-- name: 下载Python3.7版本
+- name: 下载Python{{ python_version }}版本
   unarchive:
-    src: https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
+    src: https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz
     dest: /tmp
     remote_src: yes
 
-- name: 安装Python3.7
-  shell: "cd Python-3.7.0 && ./configure && make && make install"
+- name: 安装Python{{ python_version }}
+  shell: "cd Python-{{ python _version }} && ./configure && make && make install"
   args:
     chdir: /tmp
-- name: 安装Jedi
-  shell: pip3.7 install jedi && pip2.7 install jedi
+- name: 安装python语法库Jedi
+  shell: "pip 3.{{ python_version.split('.',2)[1] }} install jedi && pip2.7 install jedi"
 
 - name: 下载lua5.3.5版本
   unarchive:

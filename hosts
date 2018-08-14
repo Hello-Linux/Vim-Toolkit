@@ -49,8 +49,9 @@
 #这里主要用来定义VIM-IDC参数
 [all:vars]
 
-#vim编译中使用的python-config文件路径
-#以下参数是按centos7 配置的大部分都是路径
+#定义需要安装python3的具体版本
+python_version="3.7.0"
+#以下是vim编译过程中python2跟python3的配置文件路径
 python3_config_dir="/usr/local/lib/python3.7/config-3.7m-x86_64-linux-gnu"
 python_config_dir="/usr/lib64/python2.7/config"
 #YCM使用的python版本
