@@ -1,0 +1,3 @@
+*.vim linguist-language=python
+*.j2 linguist-language=python
+*.yml linguist-language=python
