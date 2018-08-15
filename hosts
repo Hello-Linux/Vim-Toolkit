@@ -57,6 +57,8 @@ python_config_dir="/usr/lib64/python2.7/config"
 ycm_python_binary_path="/usr/local/bin/python3.7"
 #这里定义YouCompleteMe支持的语言种类(python默认是支持的) 目前支持的参数为--java-completer --go-completer 多个参数之间用空格分隔注意--clang-completer是必须带的默认参数
 build_params="--clang-completer"
+# 自定义go二进制版本
+go_version="1.10.3"
 #新创建文件头模板中的作者名字
 author: Sun~Shell
 #主要用来定义创建的模板文件的主机名
