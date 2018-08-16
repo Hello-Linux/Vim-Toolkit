@@ -76,7 +76,7 @@
 
 感谢所有为项目提交 `Issues`和`PRs` 的贡献者！
 
-- [如何贡献](docs/HowToContribute.md)
+- [如何贡献](doc/HowToContribute.md)
 
 
 # 运行样例截图:
