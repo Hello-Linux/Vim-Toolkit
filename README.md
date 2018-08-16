@@ -12,43 +12,43 @@
 
   # 功能描述:
 
-  1. vim 颜色插件AirLine,展示漂亮美观的vim终端环境
+  * 1.vim 颜色插件AirLine,展示漂亮美观的vim终端环境
 
-  2. 漂亮美观的缩进代码对齐线,编写代码脉络清晰可见
+  * 2.漂亮美观的缩进代码对齐线,编写代码脉络清晰可见
 
-  3. Ansible-Vim 插件支持让ansible编写更加顺畅
+  * 3.Ansible-Vim 插件支持让ansible编写更加顺畅
 
-  4. vim NERDTree 树形树支持让目录查找跳转显示更加智能方便(F2)
+  * 4.vim NERDTree 树形树支持让目录查找跳转显示更加智能方便(F2)
 
-  5. 神级补全插件YouCompleteMe支持python,go,java.c#等妈妈以后再也不用担心我的学习了
+  * 5.神级补全插件YouCompleteMe支持python,go,java.c#等妈妈以后再也不用担心我的学习了
 
-  6. vim tagbar 显示编程语言的函数 变量 类等（目前已经和nerdtree捆绑到一起,统一在左侧栏显示） (F3)
+  * 6.vim tagbar 显示编程语言的函数 变量 类等（目前已经和nerdtree捆绑到一起,统一在左侧栏显示） (F3)
 
-  7. vim 行尾空格一键删除(大部分人偶尔会在编写代码过程中在行尾加一个小尾巴) (F5)
+  * 7.vim 行尾空格一键删除(大部分人偶尔会在编写代码过程中在行尾加一个小尾巴) (F5)
 
-  8. Nerdcommenter 智能快捷注释代码(\leader+)
+  * 8.Nerdcommenter 智能快捷注释代码(\leader+)
     * <leader>ca在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
     * <leader>cc注释当前行
     * <leader>cs以”性感”的方式注释
     * <leader>cA在当前行尾添加注释符，并进入Insert模式
     * <leader>cu取消注释
 
-  9. vim各种括号补全(彩虹颜色)
+  * 9.vim各种括号补全(彩虹颜色)
 
-  10. fuzzy finder 模糊搜索工具,vim下最快的文件目录搜索工具
-  * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
+  * 10.fuzzy finder 模糊搜索工具,vim下最快的文件目录搜索工具
+    * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
 
-  11. vim粘贴缩进混乱解决方案(F1开启/关闭vim paste模式)
+  * 11.vim粘贴缩进混乱解决方案(F1开启/关闭vim paste模式)
 
-  12. nerdtree-git-plugin 显示文件git仓库代码状态
+  * 12.nerdtree-git-plugin 显示文件git仓库代码状态
 
-  13. vim mini buffer explorer 标签插件支持多个文件打开跳转(F6 F7翻页功能)
+  * 13.vim mini buffer explorer 标签插件支持多个文件打开跳转(F6 F7翻页功能)
 
-  14. 自动代码折叠功能,让代码更美观
+  * 14.自动代码折叠功能,让代码更美观
 
-  15. undotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
+  * 15.undotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
 
-  16. 支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
+  * 16.支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
 
 
 # 使用方法:
