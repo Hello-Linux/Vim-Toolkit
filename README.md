@@ -72,6 +72,13 @@
 目前支持的Linux操作系统:centos7系列后面会支持更多
 
 
+## 贡献&致谢
+
+感谢所有为项目提交 `Issues`和`PRs` 的贡献者！
+
+- [如何贡献](docs/HowToContribute.md)
+
+
 # 运行样例截图:
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example1.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example2.png)
