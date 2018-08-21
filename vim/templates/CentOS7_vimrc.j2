@@ -17,6 +17,36 @@ set encoding=utf-8
 "###################vim terminal config map"
 map <F10> :terminal<CR>
 
+"++++++++++++++++Asynchronous Lint Engine configuration++++++++++++++
+let g:ale_sign_column_always = 1
+"define the ale coin
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
+"let vim statusline combine ale
+let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_enter = 1
+let g:ale_set_highlights = 0
+" Show 5 lines of errors (default: 10)
+let g:ale_list_window_size = 10
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+"普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
+""<Leader>s触发/关闭语法检查
+nmap <Leader>s :ALEToggle<CR>
+"<Leader>d查看错误或警告的详细信息
+nmap <Leader>d :ALEDetail<CR>
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'ansible': ['ansible-lint'],
+\}
+
+
+
 "+++++++++++++++set config for indent++++++++++++
 set tabstop=2
 set autoindent
@@ -229,16 +259,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeDirArrowExpandable = '✚'
 let g:NERDTreeDirArrowCollapsible = '▾'
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"syntastic plugin settings++++++++++++++++++++++++++++
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 "+++++++++++++++++++nerdtree configuration+++++++++++++++++
 let g:NERDTreeIndicatorMapCustom = {
@@ -393,7 +413,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -417,6 +436,8 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
+Plugin 'w0rp/ale'
+Plugin 'sheerun/vim-polyglot'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}

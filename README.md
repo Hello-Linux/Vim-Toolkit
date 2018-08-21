@@ -46,13 +46,17 @@
 
   * 14.自动代码折叠功能,让代码更美观
 
-  * 15.undotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启）
+  * 15.undotree 撤销树功能,方便编写过程中随时回退到某一个时间点（F9开启)
 
-  * 16.支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
+	* 16.异步语法检测插件ale支持,比传统的syntastic快很多并且不卡顿,大部分编程语言都支持
+
+	* 17.ployglot语法高亮插件支持,让各种代码高亮更智能
+
+  * 18.支持在vim中打开一个异步terminal终端窗口,方便在vim下的命令的执行与调试（F10开启）
 
 
 # 使用方法:
-1. ansible安装 
+1. ansible安装
 
 可以参考官方网站安装方式https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-dnf-or-yum
 目前centos系列用户可以直接使用yum安装（ansible官方YUM 仓库地址:https://releases.ansible.com/ansible
