@@ -94,6 +94,7 @@
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example8.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example11.png)
 ![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example12.png)
+![image](https://github.com/Hello-Linux/Ansible-VIM-IDE/raw/master/images/example14.png)
 
 如果您觉得项目不错的话可以多多支持一下作者,后面会做出更好的改进
 <div align="center">
