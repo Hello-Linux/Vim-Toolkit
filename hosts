@@ -63,6 +63,6 @@ build_params="--clang-completer"
 # 自定义go二进制版本
 go_version="1.10.3"
 #新创建文件头模板中的作者名字
-author: Sun~Shell
+author="Sun~Shell"
 #主要用来定义创建的模板文件的主机名
 hostname="{% for h in groups['vimide'] %} {{ hostvars[h]['ansible_hostname'] }} {% endfor %}"
