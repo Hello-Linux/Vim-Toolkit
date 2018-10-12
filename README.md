@@ -65,10 +65,9 @@
 
 2.配置文件处理
 
-2.1 将项目下的所有文件拷贝到anbile的安装路径下面(centos7默认在/etc/ansible)
-2.2 执行ansible-playbook vim-ide.yml即可
-
-(友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn  安装过程很简单操作很方便！！！)
+* 2.1 将项目下的所有文件拷贝到anbile的安装路径下面(centos7默认在/etc/ansible)
+* 2.2 执行ansible-playbook vim-ide.yml即可
+* (友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn  安装过程很简单操作很方便！！！)
 
 3. vim插件更新
 执行ansible-playbook update_plugin.yml 即可
