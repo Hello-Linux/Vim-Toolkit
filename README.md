@@ -65,9 +65,9 @@
 
 2.配置文件处理
 
-2.1 将项目下的hosts 主机资源文件替换ansible默认的hosts文件(centos7默认在/etc/ansible/hosts)
-如果你要部署多台主机的话可以参考hosts文件里面的说明操作
-2.2 将项目下的vim文件夹拷贝到ansible的roles目录下面即可,执行ansible-playbook vim-ide.yml即可
+2.1 将项目下的所有文件拷贝到anbile的安装路径下面(centos7默认在/etc/ansible)
+2.2 执行ansible-playbook vim-ide.yml即可
+
 (友情提示最好看一下ansible的基础支持呦  教程地址:http://www.ansible.com.cn  安装过程很简单操作很方便！！！)
 
 3. vim插件更新
