@@ -49,6 +49,8 @@
 #这里主要用来定义VIM-IDC参数
 [all:vars]
 
+#定义Ansible的执行环境---默认是local本地执行部署,如果想要远程部署执行修改数值为smart即可
+ansible_connection=local
 #定义需要安装python3的具体版本
 python_version="3.7.0"
 #定义powerline 使用的python版本格式为:python+版本号 例如:python3.7
