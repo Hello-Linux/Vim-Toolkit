@@ -204,7 +204,7 @@ command! -n=0 -bar UndotreeFocus    :call undotree#UndotreeFocus()
 
 
 "+++++++++++++++YouCompleteMe configuration+++++++++++
-
+set completeopt=longest,menu
 let g:ycm_confirm_extra_conf=0
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
@@ -222,7 +222,6 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" :"\<PageDown>"
 inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif"
 
 "old version
