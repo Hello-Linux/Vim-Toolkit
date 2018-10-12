@@ -18,6 +18,7 @@
     - 'zlib*'
     - libffi-devel
     - python-devel
+    - 'perl-ExtUtils*'
 
 
 - name: 下载Cmake
