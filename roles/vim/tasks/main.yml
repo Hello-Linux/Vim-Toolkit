@@ -146,7 +146,9 @@
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
 - name: 安装bash powerline 插件
-  shell: pip install --user git+git://github.com/powerline/powerline
+  pip:
+    name: powerline-status
+    state: present
 - name: 初始化powerline
   blockinfile:
     path: /etc/profile
@@ -154,4 +156,4 @@
       powerline-daemon -q
       POWERLINE_BASH_CONTINUATION=1
       POWERLINE_BASH_SELECT=1
-      . ~/.local/lib/{{ powerline_python_version }}/site-packages/powerline/bindings/bash/powerline.sh
+      . /usr/local/lib/{{ powerline_python_version }}/site-packages/powerline/bindings/bash/powerline.sh
