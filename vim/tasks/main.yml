@@ -37,7 +37,7 @@
     remote_src: yes
 
 - name: 安装Python{{ python_version }}
-  shell: "cd Python-{{ python _version }} && ./configure && make && make install"
+  shell: "cd Python-{{ python_version }} && ./configure && make && make install"
   args:
     chdir: /tmp
 - name: 安装python语法库Jedi
