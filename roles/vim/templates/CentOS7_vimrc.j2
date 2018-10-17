@@ -45,7 +45,7 @@ nmap <Leader>s :ALEToggle<CR>
 nmap <Leader>d :ALEDetail<CR>
 let g:ale_linters = {
 \   'python': ['pylint'],
-\   'ansible': ['ansible-lint'],
+\   'ansible': ['ansible'],
 \}
 
 
@@ -251,9 +251,9 @@ let g:ansible_attribute_highlight = "ab"
 let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
-let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.yml': 'yaml.ansible' }
 let g:ansible_yamlKeyName = 'yamlKey'
-au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile /etc/ansible/*.yml set filetype=yaml.ansible
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F2> :NERDTree<CR>
 autocmd vimenter * NERDTree
