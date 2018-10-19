@@ -145,6 +145,11 @@
   shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
+- name:拷贝YCM额外配置文件
+  copy:
+    src: global_extra_conf.py
+    dest: ~/global_extra_conf.py
+    mode: 0644
 - name: 安装bash powerline 插件
   pip:
     name: powerline-status

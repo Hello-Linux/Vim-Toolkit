@@ -217,7 +217,14 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_confirm_extra_conf=0
 let g:ycm_cache_omnifunc=0
-let g:ycm_python_binary_path = '{{ ycm_python_binary_path }}'
+let g:ycm_python_interpreter_path = '{{ ycm_python_binary_path }}'
+let g:ycm_python_sys_path = ['{{ ycm_python_third_party_package }}']
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" :"\<PageDown>"
@@ -326,7 +333,7 @@ colorscheme molokai
 map <F5> :FixWhitespace<CR>
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++++++++++++++++rainbow vim++++++++++++++++++++++++
-let g:rainbow_active = 1 
+let g:rainbow_active = 1
 
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "+++++++++++++++++++++nerdcommenter config++++++++++++++++++++++++++++++
@@ -418,7 +425,6 @@ Plugin 'mbbill/undotree'
 Plugin 'w0rp/ale'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'luochen1990/rainbow'
-Plugin 'davidhalter/jedi-vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
