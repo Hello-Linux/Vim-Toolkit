@@ -20,6 +20,16 @@ hi comment cterm=NONE ctermfg=green
 "###################vim terminal config map"
 map <F10> :terminal<CR>
 
+"++++++++++++++++++++++jedi-vim configuration"++++++++++++++++++++++
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#documentation_command = "H"
+let g:jedi#show_call_signatures = "1"
+let g:jedi#max_doc_height = 30
+let g:jedi#smart_auto_mappings = 0
+
+
+
+
 "++++++++++++++++Asynchronous Lint Engine configuration++++++++++++++
 let g:ale_sign_column_always = 1
 "define the ale coin
@@ -425,6 +435,7 @@ Plugin 'mbbill/undotree'
 Plugin 'w0rp/ale'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'luochen1990/rainbow'
+Plugin 'davidhalter/jedi-vim'
 " " Install L9 and avoid a Naming conflict if you've already installed a
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
