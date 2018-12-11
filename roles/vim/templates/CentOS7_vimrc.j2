@@ -264,13 +264,14 @@ let g:ycm_filetype_blacklist = {
 
 "++++++++++++++++++ansible-vim Plugin++++++++++++++++
 let g:ansible_unindent_after_newline = 1
-let g:ansible_attribute_highlight = "ab"
+let g:ansible_attribute_highlight = "b"
 let g:ansible_name_highlight = 'b'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
-let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.yml': 'yaml.ansible' }
-let g:ansible_yamlKeyName = 'yamlKey'
-au BufRead,BufNewFile /etc/ansible/*.yml set filetype=yaml.ansible
+let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby', '*.yml': 'yaml.ansible','*.j2': 'ruby.jinja2' }
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile /etc/ansible/roles/*/*/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile /etc/ansible/roles/*/templates/*.j2 set filetype=ruby.jinja2
 "++++++++++++++++++++++++++++++++++++++++++++++++++++
 nmap <F2> :NERDTree<CR>
 autocmd vimenter * NERDTree
