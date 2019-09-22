@@ -145,7 +145,7 @@
   shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
-- name:拷贝YCM额外配置文件
+- name: 拷贝YCM额外配置文件
   copy:
     src: global_extra_conf.py
     dest: ~/global_extra_conf.py
@@ -157,12 +157,12 @@
 - name: 初始化powerline
   blockinfile:
     path: /etc/profile
-    block: |
+    block: | 
       powerline-daemon -q
       POWERLINE_BASH_CONTINUATION=1
       POWERLINE_BASH_SELECT=1
       . /usr/local/lib/{{ powerline_python_version }}/site-packages/powerline/bindings/bash/powerline.sh
-  - name: women
-    blockinfile
-    block: |
-      echo 4
+- name: women
+  blockinfile:
+      block: | 
+        echo 4
