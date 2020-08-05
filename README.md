@@ -69,10 +69,10 @@
 * 2.1 将项目下的所有文件拷贝到anbile的安装路径下面 (centos7默认在/etc/ansible)
 * 2.2 执行ansible-playbook vim-ide.yml
 
-3. vim插件更新
+3.vim插件更新
 执行ansible-playbook update_plugin.yml 即可
 
-4. 自定义配置文件
+4.自定义配置文件
 项目的自定义变量都放在了ansible的hosts文件内,如果需要更改的话可以去里面修改,比如支持的python/go版本,ycm的一些配置等等
 
 # 操作系统支持:
