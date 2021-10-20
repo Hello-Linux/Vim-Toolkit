@@ -59,21 +59,21 @@
   * 20.bash powerline 功能支持
 
 
-# 使用方法:
-1. ansible安装
+# 部署步骤:
+## 1. ansible安装
 
 可以参考官方网站安装方式https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-dnf-or-yum
 目前centos系列用户可以直接使用yum安装（ansible官方YUM 仓库地址:https://releases.ansible.com/ansible
 
-2.一键安装
+## 2.一键安装
 * 2.1 将项目下的所有文件拷贝到anbile的安装路径下面 (centos7默认在/etc/ansible)
 * 2.2 执行ansible-playbook vim-ide.yml
 
-3.vim插件更新
+## 3.vim插件更新
 执行ansible-playbook update_plugin.yml 即可
 
-4.自定义配置文件
-项目的自定义变量都放在了ansible的hosts文件内,如果需要更改的话可以去里面修改,比如支持的python/go版本,ycm的一些配置等等
+## 4.如何自定义配置文件
+  项目的自定义变量都放在了ansible的hosts文件内,熟悉ansible的用户可以自己修改hosts资源文件,比如自定义支持的python/go版本,ycm的一些配置等等
 
 # 操作系统支持:
 目前支持的Linux操作系统:centos7系列后面会支持更多
