@@ -17,54 +17,75 @@
     - openssl-devel
     - 'zlib*'
     - libffi-devel
-    - python-devel
-    - 'perl-ExtUtils*'
+    - python3-devel
+    - perl-ExtUtils-CBuilder
+    - perl-ExtUtils-Embed
+    - perl-ExtUtils-Install
+    - perl-ExtUtils-MakeMaker
+    - perl-ExtUtils-Manifest
+    - perl-ExtUtils-ParseXS
 
-
-- name: 下载Cmake
+- name: 解压Cmake3.15
   unarchive:
-    src: https://cmake.org/files/v3.12/cmake-3.12.0.tar.gz
+    src: cmake-3.15.0.tar.gz
     dest: /tmp
-    remote_src: yes
+    remote_src: no
 - name: 安装Cmake
-  shell: "cd cmake-3.12.0 && ./bootstrap && make && make install"
+  shell: "cd cmake-3.15.0 && ./bootstrap && make && make install"
   args:
     chdir: /tmp
 
-- name: 下载Python{{ python_version }}版本
+- name: 安装python3.8.15版本
   unarchive:
-    src: https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz
+    src: Python-3.8.15.tgz
     dest: /tmp
-    remote_src: yes
+    remote_src: no
+  when: python_install == 'yes'
 
-- name: 安装Python{{ python_version }}
-  shell: "cd Python-{{ python_version }} && ./configure && make && make install"
+- name: 安装Python3.8.15
+  shell: "cd Python-3.8.15  && ./configure && make -j 2 && make install"
   args:
     chdir: /tmp
+  when: python_install == 'yes'
+
 - name: 安装python语法库Jedi
-  shell: "pip3.{{ python_version.split('.',2)[1] }} install jedi pylint"
+  shell: "pip3.{{ python_version.split('.',2)[1] }} install jedi pylint -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com"
 
-- name: 下载lua5.3.5版本
+- name: 解压lua5.3.6版本
   unarchive:
-    src: http://www.lua.org/ftp/lua-5.3.5.tar.gz
+    src: lua-5.3.6.tar.gz
     dest: /tmp
-    remote_src: yes
+    remote_src: no
 
-- name: 安装lua5.3.5
-  shell: "cd lua-5.3.5 && make linux test && make install"
+- name: 安装lua5.3.6
+  shell: "cd lua-5.3.6 && make linux test && make install"
   args:
     chdir: /tmp
+
+- name: 获取本地vim版本
+  shell: "vim --version|awk 'NR==1 {print $5}'"
+  register: vim_version
+
+- name: var1 demo
+  debug:
+    msg: "{{ vim_version.stdout }}"
 
 - name: 准备vim环境
   unarchive:
-    src: ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
+    src: vim-9.0.tar.bz2
     dest: /tmp
-    remote_src: yes
+    remote_src: no
+  when: (vim_version.stdout | float) < 8.2
 
-- name: 安装vim
-  shell: "cd vim81 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --with-python-config-dir={{ python_config_dir }} --enable-fontset --enable-rubyinterp=dynamic --enable-perlinterp=yes --enable-python3interp=yes --with-python3-config-dir={{ python3_config_dir }} && make && make install"
+- name: 获取本地python config路径
+  shell: "python3-config --configdir"
+  register: python3_config_dir
+
+- name: 安装vim 9.0
+  shell: "cd vim90 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --enable-fontset --enable-rubyinterp=dynamic --enable-python3interp=yes --with-python3-config-dir={{ python3_config_dir.stdout }} && make && make install"
   args:
     chdir: /tmp
+  when: (vim_version.stdout | float) < 8.2
 
 - name: -安装powerline字体-
   git:

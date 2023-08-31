@@ -46,27 +46,33 @@
 [vimide]
 127.0.0.1
 
-#这里主要用来定义VIM-IDC参数
-[all:vars]
+#这里主要用来定义VIM-IDE构建参数
 
+[all:vars]
 #定义Ansible的执行环境---默认是local本地执行部署,如果想要远程部署执行修改数值为smart即可
 ansible_connection=local
-#定义需要安装python3的具体版本
-python_version="3.7.0"
+
+#定义是否需要安装python3,如果本地有python3环境则设置python_install变量为no,同时修改python_version为本地python的具体版本，如果没有python3环境，则默认版本为3.8.15
+python_install="yes"
+python_version="3.8.15"
+
 #定义powerline 使用的python版本格式为:python+版本号 例如:python3.7
-powerline_python_version="python3.7"
-#以下是vim编译过程中python2跟python3的配置文件路径
-python3_config_dir="/usr/local/lib/python3.7/config-3.7m-x86_64-linux-gnu"
-python_config_dir="/usr/lib64/python2.7/config"
+powerline_python_version="python3.8"
+
 #YCM使用的python版本
-ycm_python_binary_path="/usr/local/bin/python3.7"
-#YCM安装过程中python3第三方包的路径centos7默认是/usr/local/lib/python3.7/site-packages
-ycm_python_third_party_package='/usr/local/lib/python3.7/site-packages'
+ycm_python_binary_path="/usr/bin/python3.8"
+
+#YCM安装过程中python3第三方包的路径Redhat默认是/usr/local/lib/python3.7/site-packages
+ycm_python_third_party_package='/usr/lib/python3.8/site-packages'
+
 #这里定义YouCompleteMe支持的语言种类(python默认是支持的) 目前支持的参数为--java-completer --go-completer 多个参数之间用空格分隔注意--clang-completer是必须带的默认参数
 build_params="--clang-completer"
+
 # 自定义go二进制版本
 go_version="1.10.3"
+
 #新创建文件头模板中的作者名字
 author="Sun~Shell"
+
 #主要用来定义创建的模板文件的主机名
 hostname="{% for h in groups['vimide'] %} {{ hostvars[h]['ansible_hostname'] }} {% endfor %}"
