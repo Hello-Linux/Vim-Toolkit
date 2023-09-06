@@ -73,7 +73,7 @@
   when: python_install == 'yes'
 
 - name: 安装Python3.8.15
-  shell: "cd Python-3.8.15  && ./configure && make -j 2 && make install"
+  shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j 2 && make install"
   args:
     chdir: /tmp
   when: python_install == 'yes'
