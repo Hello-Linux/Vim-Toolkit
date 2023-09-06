@@ -41,16 +41,19 @@
 # leading 0s:
 
 ## db-[99:101]-node.example.com
-#这里主要是用来定义你要部署的vimidc主机组 这里我写的是本地部署如果你要部署其他的可以添加主机列表
-#将本地的ssh秘钥拷贝到远程主机之后修改group_vars下面的vimide文件即可
+#这里主要是用来定义你要部署的vimidc主机组,如果你要部署其他的可以添加主机列表
+#将本地的ssh秘钥拷贝到远程主机后修改group_vars下面的vimide文件即可
 [vimide]
-127.0.0.1
+192.168.98.128
 
 #这里主要用来定义VIM-IDE构建参数
 
 [all:vars]
-#定义Ansible的执行环境---默认是local本地执行部署,如果想要远程部署执行修改数值为smart即可
-ansible_connection=local
+#定义Ansible的主机环境信息，ansible_connection=local为本地执行部署，远程部署其他主机则修改user，port。pass即可！
+ansible_connection=smart
+ansible_ssh_user="root"
+ansible_ssh_pass="buzhidao"
+ansible_ssh_port=22
 
 #定义是否需要安装python3,如果本地有python3环境则设置python_install变量为no,同时修改python_version为本地python的具体版本，如果没有python3环境，则默认版本为3.8.15
 python_install="yes"

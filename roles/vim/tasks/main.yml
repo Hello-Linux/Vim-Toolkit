@@ -13,10 +13,14 @@
     - gcc-c++
     - readline-devel
     - bzip2
+    - curl
+    - libcurl
+    - curl-devel
     - openssl
     - openssl-devel
     - 'zlib*'
     - libffi-devel
+    - expat-devel
     - python3-devel
     - perl-ExtUtils-CBuilder
     - perl-ExtUtils-Embed
@@ -25,11 +29,38 @@
     - perl-ExtUtils-Manifest
     - perl-ExtUtils-ParseXS
 
+- name: 获取本地Git版本
+  shell: "git --version|awk '{print $3}'|cut -d '.' -f1"
+  register: git_version
+
+- name: 卸载旧版本git
+  yum:
+    name: git
+    state: absent
+  when: (git_version.stdout | float) < 2
+
+- name: 升级Git2.18
+  shell: "cd git-2.18.4 && make prefix=/usr/local/git all && make prefix=/usr/local/git install"
+  args:
+    chdir: /tmp
+  when: (git_version.stdout | float) < 2
+
+- name: 设置git环境变量
+  lineinfile:
+    dest=/root/.bashrc
+    line='export PATH=$PATH:/usr/local/git/bin'
+    state=present
+  when: (git_version.stdout | float) < 2
+
+- name: 重载系统变量
+  shell: "source ~/.bashrc"
+
 - name: 解压Cmake3.15
   unarchive:
     src: cmake-3.15.0.tar.gz
     dest: /tmp
     remote_src: no
+  
 - name: 安装Cmake
   shell: "cd cmake-3.15.0 && ./bootstrap && make && make install"
   args:
@@ -87,17 +118,16 @@
     chdir: /tmp
   when: (vim_version.stdout | float) < 8.2
 
-- name: -安装powerline字体-
-  git:
-    repo: 'https://github.com/powerline/fonts.git'
-    dest: /opt/checkout
-    version: master
-    clone: yes
-    update: yes
+- name: -下载powerline字体-
+  unarchive:
+    src: fonts.tar.gz
+    dest: /opt/checkout/
+    remote_src: no
+
 - name: -安装fronts字体文件-
   shell: sh install.sh
   args:
-    chdir: /opt/checkout
+    chdir: /opt/checkout/fonts
 - name: -安装vim 插件管理器-
   git:
     repo: 'https://github.com/VundleVim/Vundle.vim.git'
@@ -154,6 +184,7 @@
       src: https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz
       dest: /usr/local
       remote_src: yes
+
   - name: 初始化go环境
     lineinfile:
       path: /etc/profile
@@ -166,6 +197,7 @@
   shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
+
 - name: 拷贝YCM额外配置文件
   copy:
     src: global_extra_conf.py
