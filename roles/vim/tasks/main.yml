@@ -59,7 +59,7 @@
     src: cmake-3.15.0.tar.gz
     dest: /tmp
     remote_src: no
-  
+
 - name: 安装Cmake
   shell: "cd cmake-3.15.0 && ./bootstrap && make && make install"
   args:
@@ -76,6 +76,14 @@
   shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j 2 && make install"
   args:
     chdir: /tmp
+  when: python_install == 'yes'
+
+- name: 更新Python 动态库
+  lineinfile:
+    path: /etc/ld.so.conf
+    line: '/usr/local/lib/'
+    create: yes
+    state: present
   when: python_install == 'yes'
 
 - name: 安装python语法库Jedi
@@ -127,6 +135,18 @@
   shell: sh install.sh
   args:
     chdir: /opt/checkout/fonts
+
+- name: -安装Nerd Fonts字体库-
+  git:
+    repo: 'https://github.com/ryanoasis/nerd-fonts.git'
+    dest: /tmp/nerd-fonts
+    version: master
+    clone: yes
+    update: yes
+
+- name: 安装nerd-fonts字体
+  shell: "sh install.sh"
+
 - name: -安装vim 插件管理器-
   git:
     repo: 'https://github.com/VundleVim/Vundle.vim.git'
