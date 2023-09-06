@@ -193,7 +193,7 @@
   when: build_params.find('go') != -1
 
 - name: 安装YouCompleteMe插件
-  shell: "git submodule update --init --recursive && ./install.sh {{ build_params}}"
+  shell: "git submodule update --init --recursive && python3 install.py {{ build_params}} --force-sudo"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
 
