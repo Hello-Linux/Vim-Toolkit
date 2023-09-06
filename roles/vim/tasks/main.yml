@@ -5,7 +5,6 @@
     name: "{{ item }}"
     state: latest
   loop:
-    - git
     - ctags
     - ncurses
     - ncurses-devel
