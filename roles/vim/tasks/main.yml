@@ -67,26 +67,29 @@
   shell: "cd cmake-3.15.0 && ./bootstrap && make && make install"
   args:
     chdir: /tmp
+- name: 检查Python版本
+  block:
+    - name: 安装python3.8.15版本
+      unarchive:
+        src: Python-3.8.15.tgz
+        dest: /tmp
+        remote_src: no
 
-- name: 安装python3.8.15版本
-  unarchive:
-    src: Python-3.8.15.tgz
-    dest: /tmp
-    remote_src: no
-  when: python_install == 'yes'
+    - name: 安装Python3.8.15
+      shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j 2 && make install"
+      args:
+        chdir: /tmp
 
-- name: 安装Python3.8.15
-  shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j 2 && make install"
-  args:
-    chdir: /tmp
-  when: python_install == 'yes'
-
-- name: 更新Python 动态库
-  lineinfile:
-    path: /etc/ld.so.conf
-    line: '/usr/local/lib/'
-    create: yes
-    state: present
+    - name: 更新Python 动态库
+      lineinfile:
+        path: /etc/ld.so.conf
+        line: '/usr/local/lib/'
+        create: yes
+        state: present
+  rescue:
+    - name: Print when errors
+      debug:
+        msg: 'Install error with Python!'
   when: python_install == 'yes'
 
 - name: 安装python语法库Jedi
@@ -149,6 +152,8 @@
 
 - name: 安装nerd-fonts字体
   shell: "sh install.sh"
+  args:
+    chdir: /tmp/nerd-fonts
 
 - name: -安装vim 插件管理器-
   git:
