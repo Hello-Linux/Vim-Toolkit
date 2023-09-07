@@ -31,25 +31,28 @@
 - name: 获取本地Git版本
   shell: "git --version|awk '{print $3}'|cut -d '.' -f1"
   register: git_version
+  ignore_errors: true
 
-- name: 卸载旧版本git
-  yum:
-    name: git
-    state: absent
-  when: (git_version.stdout | float) < 2
-
-- name: 升级Git2.18
-  shell: "cd git-2.18.4 && make prefix=/usr/local/git all && make prefix=/usr/local/git install"
-  args:
-    chdir: /tmp
-  when: (git_version.stdout | float) < 2
-
-- name: 设置git环境变量
-  lineinfile:
-    dest=/root/.bashrc
-    line='export PATH=$PATH:/usr/local/git/bin'
-    state=present
-  when: (git_version.stdout | float) < 2
+- name: 检测Git环境
+  block:
+    - name: 卸载旧版本git
+      yum:
+        name: git
+        state: absent
+    - name: 升级Git2.18
+      shell: "cd git-2.18.4 && make prefix=/usr/local/git all && make prefix=/usr/local/git install"
+      args:
+        chdir: /tmp
+    - name: 设置git环境变量
+      lineinfile:
+        dest=/root/.bashrc
+        line='export PATH=$PATH:/usr/local/git/bin'
+        state=present
+  rescue:
+    - name: Print when errors
+      debug:
+        msg: 'Install error with git!'
+  when: git_version.stdout | float < 2 or git_version.stdout.find('command not found') != -1
 
 - name: 重载系统变量
   shell: "source ~/.bashrc"
@@ -128,13 +131,13 @@
 - name: -下载powerline字体-
   unarchive:
     src: fonts.tar.gz
-    dest: /opt/checkout/
+    dest: /tmp
     remote_src: no
 
 - name: -安装fronts字体文件-
   shell: sh install.sh
   args:
-    chdir: /opt/checkout/fonts
+    chdir: /tmp/fonts
 
 - name: -安装Nerd Fonts字体库-
   git:
