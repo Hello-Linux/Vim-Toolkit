@@ -39,11 +39,7 @@
       yum:
         name: git
         state: absent
-<<<<<<< HEAD
       ignore_errors: true
-=======
-      ignore_error: true
->>>>>>> d40f8fc1609e8799ea39b375a69bd941f6f11ff9
  
     - name: 解压新版git压缩包
       unarchive:
@@ -106,11 +102,7 @@
   when: python_install == 'yes'
 
 - name: 安装python语法库Jedi
-<<<<<<< HEAD
-  shell: "ldconfig;pip3.{{ python_version.split('.',2)[1] }} install jedi pylint -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com"
-=======
   shell: "ldconfig;pip3.{{ python_version.split('.',2)[1] | default(8) }} install jedi pylint -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com"
->>>>>>> d40f8fc1609e8799ea39b375a69bd941f6f11ff9
 
 - name: 解压lua5.3.6版本
   unarchive:
