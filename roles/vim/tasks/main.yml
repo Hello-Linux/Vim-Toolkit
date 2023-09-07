@@ -39,10 +39,19 @@
       yum:
         name: git
         state: absent
-    - name: 升级Git2.18
+      ignore_error: true
+ 
+    - name: 解压新版git压缩包
+      unarchive:
+        src: git-2.18.4.tar.gz
+        dest: /tmp
+        remote_src: no
+
+    - name: 安装/升级Git2.18
       shell: "cd git-2.18.4 && make prefix=/usr/local/git all && make prefix=/usr/local/git install"
       args:
         chdir: /tmp
+
     - name: 设置git环境变量
       lineinfile:
         dest=/root/.bashrc
@@ -93,7 +102,7 @@
   when: python_install == 'yes'
 
 - name: 安装python语法库Jedi
-  shell: "pip3.{{ python_version.split('.',2)[1] }} install jedi pylint -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com"
+  shell: "ldconfig;pip3.{{ python_version.split('.',2)[1] | default(8) }} install jedi pylint -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com"
 
 - name: 解压lua5.3.6版本
   unarchive:
@@ -109,10 +118,6 @@
 - name: 获取本地vim版本
   shell: "vim --version|awk 'NR==1 {print $5}'"
   register: vim_version
-
-- name: var1 demo
-  debug:
-    msg: "{{ vim_version.stdout }}"
 
 - name: 准备vim环境
   unarchive:
