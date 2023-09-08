@@ -17,6 +17,8 @@
     - curl-devel
     - openssl
     - openssl-devel
+    - centos-release-scl
+    - devtoolset-8
     - 'zlib*'
     - libffi-devel
     - expat-devel
@@ -40,7 +42,7 @@
         name: git
         state: absent
       ignore_errors: true
- 
+
     - name: 解压新版git压缩包
       unarchive:
         src: git-2.18.4.tar.gz
@@ -227,7 +229,7 @@
   when: build_params.find('go') != -1
 
 - name: 安装YouCompleteMe插件
-  shell: "git submodule update --init --recursive && python3 install.py {{ build_params}} --force-sudo"
+  shell: "scl enable devtoolset-8 bash && git submodule update --init --recursive && python3 install.py {{ build_params}} --force-sudo"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
 
@@ -243,12 +245,12 @@
 - name: 初始化powerline
   blockinfile:
     path: /etc/profile
-    block: | 
+    block: |
       powerline-daemon -q
       POWERLINE_BASH_CONTINUATION=1
       POWERLINE_BASH_SELECT=1
       . /usr/local/lib/{{ powerline_python_version }}/site-packages/powerline/bindings/bash/powerline.sh
 - name: women
   blockinfile:
-      block: | 
+      block: |
         echo 4
