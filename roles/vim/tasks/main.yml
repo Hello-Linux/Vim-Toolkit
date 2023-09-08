@@ -159,7 +159,7 @@
     update: yes
 
 - name: 安装nerd-fonts字体
-  shell: "sh install.sh"
+  shell: "./install.sh"
   args:
     chdir: /tmp/nerd-fonts
 
