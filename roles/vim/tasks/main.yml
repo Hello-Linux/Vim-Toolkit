@@ -30,6 +30,11 @@
     - perl-ExtUtils-Manifest
     - perl-ExtUtils-ParseXS
 
+- name: git环境检测
+  shell: git
+  register: git_result
+  ignore_errors: True
+
 - name: 获取本地Git版本
   shell: "git --version|awk '{print $3}'|cut -d '.' -f1"
   register: git_version
@@ -63,7 +68,7 @@
     - name: Print when errors
       debug:
         msg: 'Install error with git!'
-  when: git_version.stdout | float < 2 or git_version.stdout.find('command not found') != -1
+  when: git_version.stdout | float < 2 or git_result is failed
 
 - name: 重载系统变量
   shell: "source ~/.bashrc"
@@ -229,7 +234,7 @@
   when: build_params.find('go') != -1
 
 - name: 安装YouCompleteMe插件
-  shell: "scl enable devtoolset-8 bash && git submodule update --init --recursive && python3 install.py {{ build_params}} --force-sudo"
+  shell: "git submodule update --init --recursive && python3 install.py {{ build_params}} --force-sudo"
   args:
     chdir: ~/.vim/bundle/YouCompleteMe
 
