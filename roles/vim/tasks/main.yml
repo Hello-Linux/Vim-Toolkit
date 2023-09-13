@@ -8,8 +8,7 @@
     - ctags
     - ncurses
     - ncurses-devel
-    - gcc
-    - gcc-c++
+    - wget
     - readline-devel
     - bzip2
     - curl
@@ -18,7 +17,6 @@
     - openssl
     - openssl-devel
     - centos-release-scl
-    - devtoolset-8
     - 'zlib*'
     - libffi-devel
     - expat-devel
@@ -30,6 +28,16 @@
     - perl-ExtUtils-Manifest
     - perl-ExtUtils-ParseXS
 
+- name: gcc环境检测
+  shell: which gcc
+  register: gcc_result
+  ignore_errors: True
+
+- name: 获取本地gcc版本
+  shell: gcc --version|awk 'NR==1 {print $3}'|awk -F "." '{print $1}'
+  register: gcc_version
+  ignore_errors: true
+
 - name: git环境检测
   shell: git
   register: git_result
@@ -39,6 +47,26 @@
   shell: "git --version|awk '{print $3}'|cut -d '.' -f1"
   register: git_version
   ignore_errors: true
+
+- name: 检测GCC环境
+  block:
+    - name: 解压新版gcc压缩包
+      unarchive:
+        src: https://ftp.gnu.org/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.gz
+        dest: /tmp
+        remote_src: yes
+        validate_certs: no
+
+    - name: 安装/升级gcc8.5.0
+      shell: "cd gcc-8.5.0 && ./contrib/download_prerequisites && ./configure --enable-languages=c,c++ --disable-multilib && make -j$(nproc) && make install"
+      args:
+        chdir: /tmp
+
+  rescue:
+    - name: Print when errors
+      debug:
+        msg: 'Install error with gcc!'
+  when: gcc_version.stdout | int < 8 or gcc_result is failed
 
 - name: 检测Git环境
   block:
