@@ -7,6 +7,7 @@
   loop:
     - ctags
     - ncurses
+    - gcc-c++
     - ncurses-devel
     - wget
     - readline-devel
@@ -52,7 +53,7 @@
   block:
     - name: 解压新版gcc压缩包
       unarchive:
-        src: https://ftp.gnu.org/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.gz
+        src: https://mirrors.aliyun.com/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.gz
         dest: /tmp
         remote_src: yes
         validate_certs: no
