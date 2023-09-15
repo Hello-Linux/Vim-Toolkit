@@ -59,7 +59,7 @@
         validate_certs: no
 
     - name: 安装/升级gcc8.5.0
-      shell: "cd gcc-8.5.0 && ./contrib/download_prerequisites && ./configure --enable-languages=c,c++ --disable-multilib && make -j$(nproc) && make install"
+      shell: "cd gcc-8.5.0 && ./contrib/download_prerequisites && ./configure --enable-languages=c,c++ --disable-multilib && make -j$(nproc) && make install && rm -rf /usr/lib64/libstdc++.so.6 && ln -s /usr/local/lib64/libstdc++.so.6.0.25 /usr/lib64/libstdc++.so.6"
       args:
         chdir: /tmp
 
