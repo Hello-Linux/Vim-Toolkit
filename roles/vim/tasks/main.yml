@@ -109,7 +109,7 @@
     remote_src: no
 
 - name: 安装Cmake
-  shell: "cd cmake-3.15.0 && ./bootstrap && make && make install"
+  shell: "cd cmake-3.15.0 && ./bootstrap && make -j$(nproc) && make install"
   args:
     chdir: /tmp
 - name: 检查Python版本
@@ -121,7 +121,7 @@
         remote_src: no
 
     - name: 安装Python3.8.15
-      shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j 2 && make install"
+      shell: "cd Python-3.8.15  && ./configure --enable-shared && make -j$(nproc) && make install"
       args:
         chdir: /tmp
 
@@ -167,7 +167,7 @@
   register: python3_config_dir
 
 - name: 安装vim 9.0
-  shell: "cd vim90 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --enable-fontset --enable-rubyinterp=dynamic --enable-python3interp=yes --with-python3-config-dir={{ python3_config_dir.stdout }} && make && make install"
+  shell: "cd vim90 && ./configure --with-features=huge --enable-multibyte --with-ruby-command=ruby   --enable-pythoninterp=yes --enable-gui=gtk2 --enable-cscope --enable-luainterp --with-lua-prefix=/usr/local --enable-fontset --enable-rubyinterp=dynamic --enable-python3interp=yes --with-python3-config-dir={{ python3_config_dir.stdout }} && make -j$(nproc) && make install"
   args:
     chdir: /tmp
   when: (vim_version.stdout | float) < 8.2
