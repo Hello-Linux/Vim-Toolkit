@@ -5,6 +5,7 @@
     name: "{{ item }}"
     state: latest
   loop:
+    - epel-release
     - ctags
     - ncurses
     - gcc-c++
@@ -28,6 +29,7 @@
     - perl-ExtUtils-MakeMaker
     - perl-ExtUtils-Manifest
     - perl-ExtUtils-ParseXS
+    - the_silver_searcher
 
 - name: gcc环境检测
   shell: which gcc

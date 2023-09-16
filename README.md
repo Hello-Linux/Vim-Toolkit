@@ -26,7 +26,9 @@
     * 在vim的Visual模式下选定多行后，按下键盘"\"键位+ci)，会对选中的特定区块进行注释/反注释.
     * 支持devicons小图标智能展示功能，可以在vim中给文件增加精美图标展示.
 
-  * 4.fuzzy finder 模糊搜索工具,vim下最快的文件目录搜索工具
+  * 4.集成fuzzy finder 模糊搜索神器
+    * 默认快捷键\f搜索文件,\a快速搜索目录文本,\b查看buffers缓冲记录
+    * 快速模糊搜索文件，缓冲区，单词，文本行，tags，git 提交历史等，并且支持预览。
     * 使用说明：https://github.com/junegunn/fzf/blob/master/README-VIM.md
 
   * 5.vim mini buffer explorer 标签插件支持vim下多个文件之间的快速切换(F6 F7翻页功能)
