@@ -52,7 +52,8 @@
 * 2.1 将项目下的所有文件拷贝到anbile的安装路径下面 (Redhat 系列默认在/etc/ansible)
 * 2.2 修改/etc/ansible/hosts 配置文件
   * [vimide] 语句块下为需要部署的主机地址，[all:vars]语句块下定义主机的账号密码，其他配置信息可以参考文件说明
-* 2.2 执行
+* 2.2 执行 ansible-playbook -i hosts vim-ide.yml
+* 2.3 更新所有插件 ansible-playbook -i hosts update_plugin.yml
   ```ansible-playbook vim-ide.yml```
 
 ## 3.如何进行vim插件更新？
