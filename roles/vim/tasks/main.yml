@@ -61,9 +61,20 @@
         validate_certs: no
 
     - name: 安装/升级gcc8.5.0
-      shell: "cd gcc-8.5.0 && mkdir -p build && ./contrib/download_prerequisites && cd build && ../configure --prefix=/usr/local/gcc-8.5.0 --enable-languages=c,c++ --disable-multilib && make -j$(nproc) && make install && rm -rf /usr/lib64/libstdc++.so.6 && ln -s /usr/local/lib64/libstdc++.so.6.0.25 /usr/lib64/libstdc++.so.6"
+      shell: "cd gcc-8.5.0 && mkdir -p build && ./contrib/download_prerequisites && cd build && ../configure --prefix=/usr/local/gcc-8.5.0 --enable-languages=c,c++ --disable-multilib && make -j$(nproc) && make install && rm -rf /usr/lib64/libstdc++.so.6 && ln -s /usr/local/gcc-8.5.0/lib64/libstdc++.so.6.0.25 /usr/lib64/libstdc++.so.6"
       args:
         chdir: /tmp
+    - name: 配置gcc软连接
+      file:
+        src: /usr/local/gcc-8.5.0/bin/{{ item }}
+        dest: /usr/bin/{{ item }}
+        owner: root
+        group: root
+        state: link
+        force: yes
+      loop:
+        - gcc
+        - g++
     - name: 设置gcc环境变量
       lineinfile:
         dest="{{ item }}"
